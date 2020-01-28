@@ -18,9 +18,6 @@
   </head>
   <body>
     <textarea id="source">
-
-class: middle, center
-
 # Flow Control
 ### `if` and `while` statements
 
@@ -68,6 +65,75 @@ Line of Python code that are grouped together to accomplish a task are called "b
 ---
 class: middle
 
+# Indentation and Python
+
+* A block of code begins with a level of indentation
+* Lines of the same block must have the same indentation level
+* Blocks end when indentation decreases
+
+
+---
+class: middle
+
+# Indentation and Python (cont.)
+
+* Indentation can either be a certain number of spaces or a certain number of tabs
+* Common practice is to use 4 spaces or 1 tab that has 4 spaces of spaces
+* It's not a syntax error to use 7 spaces or 16 or even 1. It just looks weird and is hard to read.
+
+---
+class: middle
+
+# None of these are syntax errors but use the first one is good practice
+
+```python
+def four_spaces():
+    a = 1
+    b = 2
+    return a + b
+    
+def one_spaces():
+ a = 1
+ b = 2
+ return a + b
+    
+def sixteen_spaces():
+                a = 1
+                b = 2
+                return a + b
+```
+
+---
+class: middle
+
+# Exercises
+
+```python
+def func_a():
+ print('Hello')
+ return None
+ 
+def func_b():
+  print('Hello')
+    return None
+  
+def func_c():
+    print('Hello')
+    # return None
+      return None
+  
+def func_d():
+    print('Hello')
+    return None
+
+
+
+```
+
+---
+class: middle
+
+
 # We've seen code blocks before... in the homework.
 
 ```python
@@ -89,80 +155,9 @@ def exercise_2(a):
 ---
 class: middle
 
-# Indentation and Python
-
-* A block of code begins with a level of indentation
-* Lines of the same block must have the same indentation level
-* Blocks end when indentation decreases
-
-
----
-class: middle
-
-# Indentation and Python (cont.)
-
-* Indentation can either be a certain number of spaces or a certain number of tabs
-* Common practice is to use 4 spaces or 1 tab that has 4 spaces of spaces
-* It's not a syntax error to use 7 spaces or 16 or even 1. It just bad practice.
-
----
-class: middle
-
-# None of these are syntax errors but just use the first one
-
-```python
-def four_spaces():
-    a = 1
-    b = 2
-    return a + b
-```
-```python
-def one_spaces():
- a = 1
- b = 2
- return a + b
-```
-```python  
-def sixteen_spaces():
-                a = 1
-                b = 2
-                return a + b
-```
-
----
-class: middle
-
-# Exercises - Which of these are syntax errors?
-
-```python
-def func_a():
- print('Hello')
- return None
-```
-```python
-def func_b():
-  print('Hello')
-    return None
-```
-```python
-def func_c():
-    print('Hello')
-    # return None
-      return None
-```
-```python
-def func_d():
-    print('Hello')
-    return None
-```
-
----
-class: middle
-
 # The `if` statement
 
----
-class: middle
+--
 
 # An if statement executes a block of code is a condition is met.
 
@@ -175,12 +170,11 @@ class: middle
 
 * The `if` keyword
     * This has to be the first part of the statement
-* A statement that evaluates to a `bool` (This is called a condition)
+* A statement that evaluates to a Boolean value (This is called a condition)
     * This immediately follows the `if` keyword
 * A colon
     * The colon character in Python states that the code block the follows "belongs" to the preceding statement
 * A block of code
-    * Runs if condition is met
     * Remember that a code block must be indented
 
 ---
@@ -202,12 +196,15 @@ This will always print
 ---
 class: middle
 
-# Flow Charting
-
 ```python
 if name == "Alice":
     print('Hi, Alice.')
 ```
+
+Flow chart on next slide
+
+---
+class: middle
 
 ![](https://automatetheboringstuff.com/2e/images/000147.jpg)
 
@@ -220,7 +217,7 @@ class: middle
 ---
 class: middle
 
-# One option would be to write 2 `if`s...
+We could write 2 `if`s...
 
 ```python
 name = 'Brian'
@@ -237,7 +234,7 @@ class: middle
 
 `else` is an **optional** block of code that runs if the condition on the `if` statement is False. In other words, if the code block under the `if` statement doesn't run then the `else` block will.
 
-In English: “If this condition is true, execute this code. Or else, execute that code.”
+“If this condition is true, execute this code. Or else, execute that code.”
 
 ---
 class: middle
@@ -246,21 +243,11 @@ class: middle
 
 Defining an else statement is a lot like the `if` statement. You just don't need the conditional.
 
-These 2 are functionally equivalent...
-
 ```python
 name = 'Brian'
 if name == "Alice":
     print('Hi, Alice!')
 else:
-    print('Hello, stranger.')
-```
-
-```python
-name = 'Brian'
-if name == "Alice":
-    print('Hi, Alice!')
-if name != "Alice":
     print('Hello, stranger.')
 ```
 ---
@@ -303,7 +290,6 @@ else:
     print('my_var is not equal to "Hello"')
 ```
 
-
 ```python
 my_var = 'Goodbye'
 
@@ -335,7 +321,520 @@ else:
     
 ```
 
-    </textarea>
+---
+class: middle
+
+# Exercises
+
+```python
+my_var = 'Goodbye'
+
+if my_var == 'Goodbye':
+    print('We made it into the first if block')
+    print('my_var is equal to "Goodbye"')
+if my_var == 'Good Afternoon':
+    print('We made it into the second if block')
+    print('my_var is equal to "Good Afternoon"')
+else:
+    print('We made it into the else block')
+    print('my_var is not equal to "Good Afternoon"')
+    
+```
+
+---
+class: middle
+
+# elif
+
+### We have another option in `if` statements, it's called `elif`. It's shorthand for "else if" and is used to give us more than 2 options in the `if` statement.
+
+```python
+aapl_share = 318.31
+
+if aapl_share < 270:
+    print('Buy Apple)
+elif aapl_share > 410:
+    print('Sell Apple')
+else:
+    print('Hold Apple')
+```
+
+---
+class: middle
+
+# You can have as many `elif` statements as you want.
+
+```python
+a = 5
+
+if a == 1:
+    print(1)
+elif a == 2:
+    print(2)
+elif a == 3:
+    print(3)
+elif a == 4:
+    print(4)
+elif a == 5:
+    print(5)
+else:
+    print(None)
+```
+
+---
+class: middle
+
+# If statements run from top to bottom and as soon as 1 condition is met the rest of the if statement is skipped.
+
+```python
+a = 5
+
+if a == 5:
+    print(5)
+elif a == 5:
+    print(5)
+elif a == 5:
+    print(5)
+elif a == 5:
+    print(5)
+elif a == 5:
+    print(5)
+else:
+    print(None)
+```
+
+```python
+5
+```
+
+---
+class: middle
+
+# Exercises
+
+```python
+a = 'abc'
+
+if a == 'abc':
+    b = 1
+else:
+    b = -1
+```
+
+```python
+a = 'def'
+
+if a == 'abc':
+    b = 1
+elif a == 'def':
+    b = 2
+else:
+    b = -1
+```
+
+```python
+a = 'ghi'
+
+if a == 'abc':
+    b = 1
+elif a == 'def':
+    b = 2
+else:
+    b = -1
+```
+
+---
+class: middle
+
+# Exercises
+
+```python
+a = 'ghi'
+
+if a == 'ghi':
+    b = 100
+
+if a == 'abc':
+    b = 1
+elif a == 'def':
+    b = 2
+elif a == 'ghi':
+    b = 3
+else:
+    b = -1
+```
+---
+class: middle
+
+# Exercises
+```python
+a = 'abc'
+
+b = 0
+
+if a == 'abc':
+    b = b + 1
+elif a == 'def':
+    b = b + 2
+elif a == 'ghi':
+    b = b + 3
+else:
+    b = -1
+    
+b = b + 1
+```
+---
+class: middle
+
+# Exercises
+```python
+a = 'abc'
+b = 0
+
+if a == 'abc':
+    b = 1
+    
+a = 'xyz'
+
+if a == 'abc':
+    b = b + 1
+elif a == 'def':
+    b = b + 2
+elif a == 'ghi':
+    b = b + 3
+else:
+    b = -1
+```
+
+---
+class: middle
+
+# Code blocks can have code blocks.
+
+You just need to indent more. Same indent rules apply.
+
+---
+class: middle
+
+# Let's refer back to our flow chart from earlier in the lecture.
+
+![](https://automatetheboringstuff.com/2e/images/000039.jpg)
+
+---
+class: middle
+
+# These are functionally the same...
+
+```python
+if raining and have_umbrella:
+    print('Go outside.')
+else:
+    print('Wait until rain stops')
+```
+```python
+if raining:
+    if have_umbrella:
+        print('Go outside.')
+    else:
+        print('Wait until rain stops.')
+```
+
+---
+class: middle
+
+# Why are these different?
+
+```python
+if raining:
+    if have_umbrella:
+        print('Go outside.')
+    else:
+        print('Wait until rain stops.')
+```
+```python
+if raining:
+    if have_umbrella:
+        print('Go outside.')
+else:
+    print('Wait until rain stops.')
+```
+
+---
+class: middle
+
+# Nested code blocks are not exclusive to `if` statements.
+
+### We are going to use code blocks within code blocks *heavily* for the rest of the course.
+
+```python
+def exercise_1(a):
+    if a % 2 == 0:
+        return 'even'
+    else:
+        return 'odd'
+```
+
+---
+class: middle
+
+# Exercises
+
+---
+class: middle
+
+# The `while` Loop
+
+---
+class: middle
+
+# Loops are a control flow construct used to repetitively run some code.
+
+There are a couple of different ways to loop in Python
+* `while` loop
+    * Not used commonly
+    * Great way to learn about looping
+* `for` loop
+    * Extremely common
+    * Lots of background needed
+        * Knowledge of iterables, containers, generators, etc
+
+---
+class: middle
+# A `while` statement executes a block of code repetitively until a condition is not met.
+
+In English... "While this condition is true execute this code block"
+
+---
+class: middle
+
+# To define an `while` statment you to need to define the following components
+
+* The `while` keyword
+    * This has to be the first part of the statement
+* A statement that evaluates to a Boolean value (This is called a condition)
+    * This immediately follows the `while` keyword
+* A colon
+    * The colon character in Python states that the code block the follows "belongs" to the preceding statement
+* A block of code
+    * Remember that a code block must be indented
+
+---
+class: middle
+
+# Let's compare that last slide to the `if` block definition slide... They are almost the same!
+
+* The `if` keyword
+    * This has to be the first part of the statement
+* A statement that evaluates to a Boolean value (This is called a condition)
+    * This immediately follows the `if` keyword
+* A colon
+    * The colon character in Python states that the code block the follows "belongs" to the preceding statement
+* A block of code
+    * Remember that a code block must be indented
+
+---
+class: middle
+
+# An example... Spam me!
+
+```python
+spam_threshold = 5
+
+while spam_threshold > 0:
+    print('Buy my stuff!!!')
+    spam_threshold = spam_threshold - 1
+```
+```python
+Buy my stuff!!!
+Buy my stuff!!!
+Buy my stuff!!!
+Buy my stuff!!!
+Buy my stuff!!!
+```
+---
+class: middle
+
+# We saw the flow chart for a while loop before...
+
+![](https://automatetheboringstuff.com/2e/images/000039.jpg)
+
+---
+class: middle
+
+# An infinite loop is a loop that never exits.
+
+### It makes your Python runtime unusable. You application must be killed or interrupted.
+
+```python
+name = 'Bruce
+while name != 'Cindy':
+    print('You're not Cindy')
+```
+
+---
+class: middle
+
+# How to get out of an infinte loop
+
+* Terminal or IDLE
+    * `ctrl-c` on a Mac
+    * IDK on Windows. Probably like `ctrl+break` or something
+    * You can also just kill or force quit the app
+* In Jupyter/Google Colab
+    * On title bar: Runtime >> Interrupt Execution
+
+---
+class: middle
+
+# To prevent an infinite loop something must change that makes your loop terminable.
+
+It could be...
+* A change to a variable
+* Time based
+* When something happens (When a file lands somewhere or when a webpage is found)
+* A `break` statement
+* Etc
+
+---
+class: middle
+
+# Exercises
+
+What is wrong with the following code?
+
+```python
+i = 0
+sum_i = 0
+
+while i < 30:
+    sum_i = i + sum_i
+```
+
+---
+class: middle
+
+# Exercises
+
+Write a program that iterates from 1 to 15 and prints the string 'even' for every even number  or 'odd' for every odd number using a `while` loop
+
+---
+class: middle
+
+# Exercises
+
+Write a program that uses a `while` loop to average the integers between 6 and 46.
+
+---
+class: middle
+
+# Exercises
+
+What does the following code do? What is wrong with it?
+
+```python
+i = 0
+sum_evens = 0
+
+while i < 30:
+    if i % 2 == 0:
+        sum_evens = i + sum_evens
+    else:
+        i = i + 1
+```
+
+---
+class: middle
+
+# The Input Function
+
+The built-in function `input()` asks the user for an input and returns the value entered
+
+```python
+name = input()
+print(name)
+```
+---
+class: middle
+
+# What's wrong with this?
+
+```python
+name = input()
+
+while name != "Jack":
+    print("You're not Jack. I want Jack")
+    input()
+    
+print('Wassup Jack')
+```
+
+---
+class: middle
+
+# Exercises
+
+Write a program that uses a `while` loop to accept integer inputs until a negative number. Then print out the sum of the positive integers.
+
+---
+class: middle
+
+# The `continue` keyword immediately sends us to the next iteration of the loop skipping all remaining code in the block.
+
+
+```python
+i = 0
+
+while i < 20:
+    if i % 5 == 0:
+        i = i + 1
+        continue
+    print(i)
+    i = i + 1
+```
+---
+class: middle
+
+# This is an infinite loop. Why?
+
+```python
+i = 0
+
+while i < 20:
+    if i % 5 == 0:
+        continue
+    print(i)
+    i = i + 1
+```
+
+---
+class: middle
+
+# The `break` keyword immediately gets us out of the while loop.
+
+
+```python
+i = 0
+
+while i < 20:
+    if i == 5:
+        break
+    print(i)
+    i = i + 1
+```
+---
+class: middle
+
+# Exercises
+
+Write a program that asks for names. It should print "Welcome, {name}." after each input. After 8 names are entered the program should print "The room is full."
+
+---
+class: middle
+
+# Exercises
+
+Change the program preceding to turn away anyone named "Harry" and print "Sorry, no Harry's allowed."
+</textarea>
     <script src="https://remarkjs.com/downloads/remark-latest.min.js">
     </script>
     <script>

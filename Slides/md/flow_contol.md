@@ -214,7 +214,7 @@ class: middle
 
 `else` is an **optional** block of code that runs if the condition on the `if` statement is False. In other words, if the code block under the `if` statement doesn't run then the `else` block will.
 
-â€œIf this condition is true, execute this code. Or else, execute that code.â€
+ÒIf this condition is true, execute this code. Or else, execute that code.Ó
 
 ---
 class: middle
@@ -230,7 +230,7 @@ if name == "Alice":
 else:
     print('Hello, stranger.')
 ```
---
+---
 class: middle
 
 # Exercises
@@ -548,3 +548,262 @@ def exercise_1(a):
 ```
 
 ---
+class: middle
+
+# Exercises
+
+---
+class: middle
+
+# The `while` Loop
+
+---
+class: middle
+
+# Loops are a control flow construct used to repetitively run some code.
+
+There are a couple of different ways to loop in Python
+* `while` loop
+    * Not used commonly
+    * Great way to learn about looping
+* `for` loop
+    * Extremely common
+    * Lots of background needed
+        * Knowledge of iterables, containers, generators, etc
+
+---
+class: middle
+# A `while` statement executes a block of code repetitively until a condition is not met.
+
+In English... "While this condition is true execute this code block"
+
+---
+class: middle
+
+# To define an `while` statment you to need to define the following components
+
+* The `while` keyword
+    * This has to be the first part of the statement
+* A statement that evaluates to a Boolean value (This is called a condition)
+    * This immediately follows the `while` keyword
+* A colon
+    * The colon character in Python states that the code block the follows "belongs" to the preceding statement
+* A block of code
+    * Remember that a code block must be indented
+
+---
+class: middle
+
+# Let's compare that last slide to the `if` block definition slide... They are almost the same!
+
+* The `if` keyword
+    * This has to be the first part of the statement
+* A statement that evaluates to a Boolean value (This is called a condition)
+    * This immediately follows the `if` keyword
+* A colon
+    * The colon character in Python states that the code block the follows "belongs" to the preceding statement
+* A block of code
+    * Remember that a code block must be indented
+
+---
+class: middle
+
+# An example... Spam me!
+
+```python
+spam_threshold = 5
+
+while spam_threshold > 0:
+    print('Buy my stuff!!!')
+    spam_threshold = spam_threshold - 1
+```
+```python
+Buy my stuff!!!
+Buy my stuff!!!
+Buy my stuff!!!
+Buy my stuff!!!
+Buy my stuff!!!
+```
+---
+class: middle
+
+# We saw the flow chart for a while loop before...
+
+![](https://automatetheboringstuff.com/2e/images/000039.jpg)
+
+---
+class: middle
+
+# An infinite loop is a loop that never exits.
+
+### It makes your Python runtime unusable. You application must be killed or interrupted.
+
+```python
+name = 'Bruce
+while name != 'Cindy':
+    print('You're not Cindy')
+```
+
+---
+class: middle
+
+# How to get out of an infinte loop
+
+* Terminal or IDLE
+    * `ctrl-c` on a Mac
+    * IDK on Windows. Probably like `ctrl+break` or something
+    * You can also just kill or force quit the app
+* In Jupyter/Google Colab
+    * On title bar: Runtime >> Interrupt Execution
+
+---
+class: middle
+
+# To prevent an infinite loop something must change that makes your loop terminable.
+
+It could be...
+* A change to a variable
+* Time based
+* When something happens (When a file lands somewhere or when a webpage is found)
+* A `break` statement
+* Etc
+
+---
+class: middle
+
+# Exercises
+
+What is wrong with the following code?
+
+```python
+i = 0
+sum_i = 0
+
+while i < 30:
+    sum_i = i + sum_i
+```
+
+---
+class: middle
+
+# Exercises
+
+Write a program that iterates from 1 to 15 and prints the string 'even' for every even number  or 'odd' for every odd number using a `while` loop
+
+---
+class: middle
+
+# Exercises
+
+Write a program that uses a `while` loop to average the integers between 6 and 46.
+
+---
+class: middle
+
+# Exercises
+
+What does the following code do? What is wrong with it?
+
+```python
+i = 0
+sum_evens = 0
+
+while i < 30:
+    if i % 2 == 0:
+        sum_evens = i + sum_evens
+    else:
+        i = i + 1
+```
+
+---
+class: middle
+
+# The Input Function
+
+The built-in function `input()` asks the user for an input and returns the value entered
+
+```python
+name = input()
+print(name)
+```
+---
+class: middle
+
+# What's wrong with this?
+
+```python
+name = input()
+
+while name != "Jack":
+    print("You're not Jack. I want Jack")
+    input()
+    
+print('Wassup Jack')
+```
+
+---
+class: middle
+
+# Exercises
+
+Write a program that uses a `while` loop to accept integer inputs until a negative number. Then print out the sum of the positive integers.
+
+---
+class: middle
+
+# The `continue` keyword immediately sends us to the next iteration of the loop skipping all remaining code in the block.
+
+
+```python
+i = 0
+
+while i < 20:
+    if i % 5 == 0:
+        i = i + 1
+        continue
+    print(i)
+    i = i + 1
+```
+---
+class: middle
+
+# This is an infinite loop. Why?
+
+```python
+i = 0
+
+while i < 20:
+    if i % 5 == 0:
+        continue
+    print(i)
+    i = i + 1
+```
+
+---
+class: middle
+
+# The `break` keyword immediately gets us out of the while loop.
+
+
+```python
+i = 0
+
+while i < 20:
+    if i == 5:
+        break
+    print(i)
+    i = i + 1
+```
+---
+class: middle
+
+# Exercises
+
+Write a program that asks for names. It should print "Welcome, {name}." after each input. After 8 names are entered the program should print "The room is full."
+
+---
+class: middle
+
+# Exercises
+
+Change the program preceding to turn away anyone named "Harry" and print "Sorry, no Harry's allowed."
