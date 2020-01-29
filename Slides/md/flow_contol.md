@@ -805,9 +805,9 @@ In English... "`break` out of this loop"
 i = 0
 
 while True:    # infinite loop
-`   print(i)
+    print(i)
     i = i + 1
-    if i == 5:`
+    if i == 5:
         break  # breaks out of infinite loop when i == 5
 ```
 ---
