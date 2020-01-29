@@ -1,3 +1,5 @@
+class: middle
+
 # Flow Control
 ### `if` and `while` statements
 
@@ -137,7 +139,8 @@ class: middle
 
 # The `if` statement
 
---
+---
+class: middle
 
 # An if statement executes a block of code is a condition is met.
 
@@ -181,11 +184,6 @@ if name == "Alice":
     print('Hi, Alice.')
 ```
 
-Flow chart on next slide
-
----
-class: middle
-
 ![](https://automatetheboringstuff.com/2e/images/000147.jpg)
 
 ---
@@ -197,7 +195,7 @@ class: middle
 ---
 class: middle
 
-We could write 2 `if`s...
+# We could write 2 `if`s...
 
 ```python
 name = 'Brian'
@@ -214,7 +212,7 @@ class: middle
 
 `else` is an **optional** block of code that runs if the condition on the `if` statement is False. In other words, if the code block under the `if` statement doesn't run then the `else` block will.
 
-“If this condition is true, execute this code. Or else, execute that code.”
+‚ÄúIf this condition is true, execute this code. Or else, execute that code.‚Äù
 
 ---
 class: middle
@@ -254,7 +252,7 @@ if my_var != 'Hello':
     print('my_var is not equal to "Hello"')
 ```
 
---
+---
 class: middle
 
 # Exercises
@@ -270,7 +268,6 @@ else:
     print('my_var is not equal to "Hello"')
 ```
 
-
 ```python
 my_var = 'Goodbye'
 
@@ -282,7 +279,7 @@ if my_var == 'Good Afternoon':
     print('my_var is equal to "Good Afternoon"')
 ```
 
---
+---
 class: middle
 
 # Exercises
@@ -333,7 +330,7 @@ class: middle
 aapl_share = 318.31
 
 if aapl_share < 270:
-    print('Buy Apple)
+    print('Buy Apple')
 elif aapl_share > 410:
     print('Sell Apple')
 else:
@@ -444,6 +441,10 @@ elif a == 'ghi':
 else:
     b = -1
 ```
+---
+class: middle
+
+# Exercises
 ```python
 a = 'abc'
 
@@ -460,6 +461,10 @@ else:
     
 b = b + 1
 ```
+---
+class: middle
+
+# Exercises
 ```python
 a = 'abc'
 b = 0
@@ -550,11 +555,6 @@ def exercise_1(a):
 ---
 class: middle
 
-# Exercises
-
----
-class: middle
-
 # The `while` Loop
 
 ---
@@ -575,7 +575,9 @@ There are a couple of different ways to loop in Python
 class: middle
 # A `while` statement executes a block of code repetitively until a condition is not met.
 
-In English... "While this condition is true execute this code block"
+* The condition is checked at the start of each *iteration* in the loop.
+
+* In English... "While this condition is true execute this code block"
 
 ---
 class: middle
@@ -720,7 +722,7 @@ class: middle
 
 # The Input Function
 
-The built-in function `input()` asks the user for an input and returns the value entered
+The built-in function `input()` asks the user for an input and returns the value entered as a string.
 
 ```python
 name = input()
@@ -729,14 +731,24 @@ print(name)
 ---
 class: middle
 
-# What's wrong with this?
+# The first *argument* to `input()` will describe to your user what to do with the input.
 
 ```python
-name = input()
+name = input('Enter your name: ')
+print(name)
+```
+
+---
+class: middle
+
+# Example: Where's Jack?
+
+```python
+name = input('What is your name? ')
 
 while name != "Jack":
-    print("You're not Jack. I want Jack")
-    input()
+    print("You\'re not Jack. I want Jack!")
+    input('What is your name? ')
     
 print('Wassup Jack')
 ```
@@ -752,6 +764,8 @@ Write a program that uses a `while` loop to accept integer inputs until a negati
 class: middle
 
 # The `continue` keyword immediately sends us to the next iteration of the loop skipping all remaining code in the block.
+
+The condition will be reevaluated.
 
 
 ```python
@@ -784,15 +798,17 @@ class: middle
 
 # The `break` keyword immediately gets us out of the while loop.
 
+In English... "`break` out of this loop"
+
 
 ```python
 i = 0
 
-while i < 20:
-    if i == 5:
-        break
+while True:    # infinite loop
     print(i)
     i = i + 1
+    if i == 5:
+        break  # breaks out of infinite loop when i == 5
 ```
 ---
 class: middle
