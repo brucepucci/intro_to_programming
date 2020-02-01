@@ -702,24 +702,6 @@ Write a program that uses a `while` loop to average the integers between 6 and 4
 ---
 class: middle
 
-# Exercises
-
-What does the following code do? What is wrong with it?
-
-```python
-i = 0
-sum_evens = 0
-
-while i < 30:
-    if i % 2 == 0:
-        sum_evens = i + sum_evens
-    else:
-        i = i + 1
-```
-
----
-class: middle
-
 # The Input Function
 
 The built-in function `input()` asks the user for an input and returns the value entered as a string.
@@ -752,13 +734,6 @@ while name != "Jack":
     
 print('Wassup Jack')
 ```
-
----
-class: middle
-
-# Exercises
-
-Write a program that uses a `while` loop to accept integer inputs until a negative number. Then print out the sum of the positive integers.
 
 ---
 class: middle
@@ -815,6 +790,13 @@ class: middle
 
 # Exercises
 
+Write a program that uses a `while` loop to accept integer inputs until a negative number is seen. Print out the sum of the positive integers.
+
+---
+class: middle
+
+# Exercises
+
 Write a program that asks for names. It should print "Welcome, {name}." after each input. After 8 names are entered the program should print "The room is full."
 
 ---
@@ -823,3 +805,28 @@ class: middle
 # Exercises
 
 Change the program preceding to turn away anyone named "Harry" and print "Sorry, no Harry's allowed."
+
+---
+class: middle
+
+# Exercises
+
+Write a function that takes an odd integer called `size` as an input
+
+It returns a string that when printed displays a sideways pyramid using the # character peaking at `size` #s.
+
+For example...
+
+```python
+>>> result = pyramid_string(5)
+>>> print(result)
+#
+##
+###
+####
+#####
+####
+###
+##
+#
+```

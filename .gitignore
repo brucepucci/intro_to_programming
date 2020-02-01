@@ -29,3 +29,5 @@ Temporary Items
 Books
 
 *.swp
+
+*.ipynb_checkpoints
