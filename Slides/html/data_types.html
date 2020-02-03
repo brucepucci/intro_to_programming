@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>data_types</title>
+		<style>
+			@import url(https://fonts.googleapis.com/css?family=Yanone+Kaffeesatz);
+@import url(https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic);
+@import url(https://fonts.googleapis.com/css?family=Ubuntu+Mono:400,700,400italic);
+
+body { font-family: 'Droid Serif'; }
+h1, h2, h3 {
+	font-family: 'Yanone Kaffeesatz';
+	font-weight: normal;
+}
+.remark-code, .remark-inline-code { font-family: 'Ubuntu Mono'; }
+
+		</style>
+	</head>
+	<body>
+		<textarea id="source">
+class: middle
+
+# Data Types
+
+---
+class: middle
+
+# What are data types?
+
+A data type is a category for values, and every value belongs to exactly one data type. We'll talk about 4 today...
+
+* Strings
+* Numbers
+    * Floating-point Numbers
+    * Integers
+* Boolean
+* None
+
+---
+class: middle
+
+# There are many more data types, some of which we will cover later in the course...
+
+* Functions
+* Classes
+* Lists
+* Dictionaries
+* ...
+
+---
+class: middle
+
+# Built-in Functions
+
+The Python interpreter has nearly 70 <sup>nice</sup> "built-in" functions. These are functions you can call without importing or writing them. Full list [here](https://docs.python.org/3/library/functions.html) but some examples are...
+
+```python
+>>> abs(-2)
+2
+
+>>> min([1, 2, 3, 4, 5])
+1
+
+>>> type(2)    # Use this to check the type of a value
+<class 'int'>
+
+>>> a = 'my string'
+>>> type(a)
+<class 'str'>
+```
+
+---
+class: middle
+
+# Numerics
+
+---
+class: middle
+
+# In Python there are 2 main numeric types.
+
+* Integers (called *ints*) are whole numbers.
+    * -2, 0, 100, 2
+* Floating-point numbers (called *floats*) have a decimal point.
+    * 3.14, 1.0, -123.45
+
+Unlike other programming languages you do not need to worry if your value will fit into the memory allocated for each data type. (ie. 64bit vs 8bit *ints*)
+
+---
+class: middle
+
+# Both numeric types play by a familiar set of mathematical rules.
+
+### PEMDAS still applies in Python.
+
+```python
+>>> ((8 + 1) * 5) / 10 + 1
+5.5
+```
+
+---
+class: middle
+
+# Explicit Type Conversion
+
+Some of the built in functions in Python are used to convert from one type to another.
+
+```python
+>>> int(3.14) # Always rounds down
+3
+
+>>> float(0)
+0.0
+
+>>> int('4')
+4
+
+>>> int('4.0')   # A bridge too far.
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+ValueError: invalid literal for int() with base 10: '4.0'
+
+>>> float('4.0')
+4.0
+```
+
+---
+class: middle
+
+# Implicit Type Conversion
+
+Some functions and operators require you to convert types. A couple examples
+
+```python
+>>> 2 + 1.14 # Mathematical operation with mixed numeric types
+3.14
+
+>>> 2 / 5    # Division between 2 ints
+0.4
+
+>>> 10 / 2   # Even if they can evaluate to an int
+5.0
+```
+---
+class: middle
+
+# Exercises
+
+```python
+>>> float(0) + 1
+```
+```python
+>>> int(5.9) + 1.0
+```
+```python
+>>> int(5) / int(1)
+```
+```python
+>>> int(int(5) / int(1))
+```
+ 
+---
+class: middle
+
+# Mathematical operators you may not have seen.
+ 
+```python
+>>> 10 // 3   # Integer Division: Returns int, throws out remainder
+3
+
+>>> 10 % 3    # Modulo, Returns in, only remainder
+1
+
+>>> 10 ** 3    # Exponent, 10 to the third power
+1000
+
+>>> 10. ** 3    # Expexcted
+1000.0
+```
+
+---
+class: middle
+
+ # More numeric built-ins
+ 
+```python
+>>> max([1, 2, 3, 4, 5]) # consumes an `iterable`
+5
+
+>>> min([1, 2, 3, 4, 5]) # consumes an `iterable`
+1
+
+>>> sum([1, 2, 3, 4, 5]) # consumes an `iterable`
+15
+
+>>> round(3.14)
+3
+
+>>> round(3.99)
+4
+
+>>> round(3.14, 1) # Optional: Takes an 'argument' for # of decimal places to round to
+3.1
+```
+
+---
+class: middle
+
+# Exercises
+
+```python
+>>> (25 // 2)
+```
+```python
+>>> float(5 // 2)
+```
+```python
+>>> (13 // 2 * 2) + 13 % 2
+```
+```python
+>>> round(math.pi, 2)     # assume math is imported from standard library
+```
+```python
+>>> a = 10
+>>> [1, 2, -2, -1, a]
+```
+
+---
+class: middle
+
+# Strings
+
+---
+class: middle
+
+# Strings are a way to store sequences of characters.
+
+### 2 ways to declare a Python string.
+
+* A set of single quotes (')
+```python
+'Quote me on this.'
+```
+* A set of double quotes (")
+```python
+"Quote me on this."
+```
+
+---
+class: middle
+
+# Tip: Quote marks in quotes
+
+You can use the opposite type of quotes if you need to include a quote in a string.
+```python
+>>> 'It's my favorite quote.'
+  File "<stdin>", line 1
+    'It's my favorite quote.'
+        ^
+SyntaxError: invalid syntax
+
+>>> "It's my favorite quote."
+"It's my favorite quote."
+```
+
+You can also use a backslash to "escape" a quote. This allows it to be in a string but prevents Python from interpreting it as the end of a string.
+```python
+>>> 'It\'s my favorite quote.'
+"It's my favorite quote."
+```
+
+---
+class: middle
+
+# Multi-Line Quotes
+
+Strings within 3 sets of quotation marks (single or double) can continue from line to line
+
+```python
+>>> a = """This is a
+multi
+line
+comment.
+"""
+>>> print(a)
+This is a
+multi
+line
+comment.
+
+>>> a
+'This is a\nmulti\nline\ncomment.\n'       # Newlines are actually characters... \n
+
+>>> 'These are 		 tabs.'
+'These are \t\t tabs.'
+```
+
+---
+class: middle
+
+# Operators and Strings
+
+Operators and strings work relatively intuitively.
+
+```python
+>>> 'Where are my keys?' + ' Oh, there they are.'
+'Where are my keys? Oh, there they are.'
+```
+
+---
+class: middle
+
+# The `len()` built in function
+
+To find the number of characters in a string use the `len()` buit-in.
+
+```python
+>>> len('Python')
+6
+
+>>> len('')
+0
+
+```
+
+`len()` has many uses in Python we will cover more in the future.
+
+---
+class: middle
+
+# Exercises
+```python
+>>> 'yo' * 3
+```
+```python
+>>> 'Run ' + 'far ' * 2 + 'away.'
+```
+```python
+>>> a = 'It's a me Mario'
+```
+```python
+>>> 'yo' * 10.2
+```
+```python
+>>> '😊' * round(6.3)
+```
+```python
+>>> len('😊') * round(6.3)
+```
+```python
+>>> len(len('😊') * round(6.3))
+```
+---
+class: middle
+
+# Much more on strings later in the course.
+
+---
+class: middle
+
+# Booleans
+
+---
+class: middle
+
+# A boolean type takes 1 of 2 values. True or False.
+
+* Name comes from mathematician, George Boole, who studied what's now known as "Boolean Logic".
+* They are used to represent the "truthiness" of a statement
+
+---
+class: middle
+
+# Boolean Operators
+
+* `and` - Expressions on both sides of operator must be true for `True`
+    * `&` is almost exactly the same, don't worry about difference in this course
+* `or` - Expressions on either side of operator must be true for `True`
+    * `|` is almost exactly the same, don't worry about difference in this course
+
+---
+class: middle
+
+# Exercises
+
+```python
+>>> (1 == 1) and (1 == 1)
+```
+```python
+>>> (a > b) or (b >= a)   # Assume a & b are numerics
+```
+```python
+>>> ((True or False) and False) and True or False
+```
+```python
+>>> 13 % 2 == 0
+```
+
+---
+class: middle
+
+# Comparison Operators
+
+* `==` - Expressions on both sides of operator must be equivalent for `True`
+    * `is` is almost exactly the same, don't worry about difference in this course
+* `!=` - Expressions on both sides of operator must not be equivalent for `True`
+    * `is not` is almost exactly the same, don't worry about difference in this course
+* `>` - Expressions on left of operator must be greater than right for `True`
+* `>=` - Expressions on left of operator must be greater or qual to than right for `True`
+
+---
+class: middle
+
+# Exercises
+
+```python
+>>> 1 == 1 + 1
+```
+```python
+>>> type(0) == int
+```
+```python
+>>> 'Python' == 'python'
+```
+```python
+>>> len('python') >= len('is fun')
+```
+```python
+>>> print('Hi') == None
+```
+```python
+>>> j = 'hel'
+>>> j + 'lo' == 'hello'
+```
+
+---
+class: middle
+
+# Boolean Built-Ins
+
+* `all` - Consumers an *iterable* and if all conditions are true returns `True`
+* `any` - Consumers an *iterable* and if any condition is true returns `True`
+
+---
+class: middle
+
+# Boolean type conversion in Python
+
+Any non-zero, non-empty string, non-None type values evaluate to True
+
+```python
+>>> bool(0)
+False
+
+>>> bool(0.0)
+False
+
+>>> bool(0.000001)
+True
+
+>>> bool('')
+False
+
+>>> bool('   ')
+True
+
+>>> bool(None)
+False
+```
+
+---
+class: middle
+
+# Exercises
+
+```python
+>>> all([True, True, True])
+```
+```python
+>>> any([True & False, False])
+```
+```python
+>>> bool(1.3 * 0.0)
+```
+```python
+>>> bool('' + '')
+```
+```python
+>>> any([None, '', 0, ' '])
+```
+---
+class: middle
+
+# `None` is a representation for the absence of something. If a function returns nothing `None` is assigned.
+
+```python
+>>> None == 0
+False
+
+>>> None == False
+False
+
+>>> None == ''
+False
+
+>>> None is None
+True
+```
+
+---
+class: middle
+
+# Questions?
+
+		</textarea>
+		<script src="https://gnab.github.io/remark/downloads/remark-latest.min.js"></script>
+		<script>
+			var slideshow = remark.create();
+		</script>
+		<script>var slideshow = remark.create({
+	navigation: {
+		scroll: false
+	},
+	highlightLines: true
+});
+</script>
+	</body>
+</html>

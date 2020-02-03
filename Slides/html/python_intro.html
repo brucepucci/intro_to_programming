@@ -1,0 +1,642 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>python_intro</title>
+		<style>
+			@import url(https://fonts.googleapis.com/css?family=Yanone+Kaffeesatz);
+@import url(https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic);
+@import url(https://fonts.googleapis.com/css?family=Ubuntu+Mono:400,700,400italic);
+
+body { font-family: 'Droid Serif'; }
+h1, h2, h3 {
+	font-family: 'Yanone Kaffeesatz';
+	font-weight: normal;
+}
+.remark-code, .remark-inline-code { font-family: 'Ubuntu Mono'; }
+
+		</style>
+	</head>
+	<body>
+		<textarea id="source">
+class: center, middle
+
+![](https://miro.medium.com/max/1036/1*TmwjhHeBOr1TNde_UbVMFQ.png)
+
+---
+class: center, middle
+
+# Introduction to Python
+![](https://www.python.org/static/community_logos/python-logo-master-v3-TM.png)
+
+(Chapter 1 in Automate the Boring Stuff with Python)
+
+---
+class: middle
+
+# What is Python?
+
+"Python is an easy to learn, powerful programming language. It has efficient high-level data structures and a simple but effective approach to object-oriented programming. Python's elegant syntax and dynamic typing, together with its interpreted nature, make it an ideal language for scripting and rapid application development in many areas on most platforms."
+.right[-Python.org]
+
+.footnote[*Don't get thrown off by the programming jargon we will dive into why some of these things are important*]
+
+---
+class: middle
+
+# Why is Python so widely used?
+
+* Open Source
+* Easy to Read and Learn
+* High Level
+* Dynamic
+* Interpreted
+* "Batteries Included"
+* Wide Range of Applications
+* Extensive & Mature Library Base
+
+---
+class: middle
+
+# FLOSS - Free/Libre Open Source Software
+
+Unlike languages like SAS or SPSS, Python is created and maintained by the community and is completely free to use. There is no proprietary license on it. Incentives are better aligned when the people who are tasked with maintaining and improving the language are the actual users who will see the benefit of it.
+
+---
+class: middle
+
+# Python's syntax is readable.
+
+The minimalism and simplicity of the language make it easy to read and understand. This allows us to concentrate on the solution not the ritual of coding. It's kinda like pseudo-English.
+
+```python
+eggs = 9
+
+while eggs >= 2:
+    eggs = eggs - 2
+    print('🍳')
+```
+
+```bash
+🍳
+🍳
+🍳
+🍳
+```
+
+---
+class: middle
+
+# High level programming languages prioritize developer time over run time.
+
+.center[<img src="https://miro.medium.com/max/1440/1*8j2PmhExz4q87OoddaH7ag.png" width="400">]
+
+---
+class: middle
+
+# Low Level vs High Level
+
+```python
+# Python. Easy to read.
+name = input()
+print("Good evening, " + name)
+```
+```cpp
+// C++. Difficult to read.
+#include
+#include
+using namespace std;
+int main() {
+string name;
+cin >> name;
+cout << "Good evening, " << name << endl;
+return 0;
+}
+```
+```bash
+# Less than half of the full program in assembly. Impossible to read.
+...
+fmt:    db "%s", 10, 0
+        section .text
+        global main
+main:
+        push    rbp
+        mov     rdi,fmt
+        mov     rsi,msg
+        mov     rax,0
+...
+```
+---
+class: middle
+
+# Dynamic typing allows our programs to bend the rules that low-level languages enforce for the sake of productivity.
+
+### Duck Typing
+  * "If it walks like a duck and it quacks like a duck, then it must be a duck"
+
+```python
+>>> 'yo' * 3      # multiplying an integer by a string?
+```
+```bash
+'yoyoyo'          # Python tries it's hardest to do something useful
+```
+---
+class: middle
+
+# Python has long maintained the philosophy of "batteries included".
+
+This means having a rich and versatile standard library which is immediately available, without making the user download separate packages. This allows us to expect that a versatile toolbox of pre-written code will be available anywhere Python is installed.
+
+---
+class: middle
+
+# An interpreted language doesn't need to be compiled.
+
+The specifics don't matter right now but in short this make running, testing, and debugging your code *much* easier. It also allows your code to easily run on other machines with Python installed when compared to compiled languages.
+
+---
+class: middle
+
+# Python isn't specialized to 1 area like Javascript or R.
+
+* Back End Web Servers
+* Front End Web Design
+* Data Science
+* Numerical & Scientific Computing
+* Desktop Applications
+* Education
+* Etc
+
+---
+class: middle
+
+# The Python Package Index (PIP) houses some of the most-popular and well-developed free software libraries in the world.
+
+* Machine Learning
+  * TensorFlow
+  * PyTorch
+  * LightGBM
+  * XGBoost
+  * SK-Learn
+* Data Manipulation & Numerical Computing
+  * Pandas
+  * Numpy
+* Web Development
+  * Requests
+  * Flask
+  * Django
+* Etc
+
+---
+class: middle
+
+# All of this stuff is great, but it doesn't make Python the "best" language.
+
+### Python is...
+* Slow
+* Doesn't protect the programmer from themselves
+* Doesn't scale particularly well
+* Can be the "wild west" of programming languages
+
+There are the costs that come with the benefits described above.
+
+---
+class: middle
+
+# One more thing before we actually start looking at code... Python2 vs Python3
+Python2 is dead. Do not use it. It's still in use and available on Google Colab be careful your code will choke on the tests in the problem sets. In fact, Apple computers only shipped with Python2 until last year.
+
+---
+class: middle
+
+# Enough BS let's get start coding
+
+---
+class: middle
+
+# Hello, world!
+
+The canonical 'Hello, world!' example is usually the first program you'll write in any language.
+
+This is it in Python.
+```python
+print('Hello, world!')
+```
+There is surprisingly more to it than meets the eye.
+
+---
+class: middle
+
+# That looks great... but what can we do with it?
+
+### Where can I run that line of code?
+
+---
+class: middle
+
+# How to execute Python code (Option 1)
+
+* Interpreter Prompt
+  * Open up `Terminal` on a Mac and type `python3` you should see something like this...
+  ```python
+  >>> print('Hello, world!')
+  'Hello, world!'
+  ```
+  * On Windows you can easily download and install Python from [python.org](https://www.python.org/).
+    * After install you'll find an application called IDLE, this is a Python interpreter
+  * Good for testing a couple statements out quickly
+
+---
+class: middle
+
+# How to execute Python code (Option 2)
+* Executing a source code file
+  * Open a text editor, write some code, save it as `my_file.py`
+  * Run from Terminal with command `python3 my_file.py`
+    * Example text editors: PyCharm, BBEdit, VSCode, Sublime Text, ...
+  * Good for maintaining a project and reproducibility
+
+```bash
+> echo 'print("Hello, world!")' > my_file.py
+
+> cat my_file.py
+print("Hello, world!")
+
+> python my_file.py
+Hello, world!
+```
+
+---
+class: middle
+
+# How to execute Python code (Option 3)
+* Jupyter Notebooks
+  * Easiest way for now but requires some set up which has already been done for you.
+  * Perfect for easily stepping through code and visualizing results.
+  * Your homework and final project will be submitted this way in Google Colab
+
+---
+class: middle
+
+# Comments
+
+Comments are characters that appear in the source code but are ignored by the interpreter (or compiler). Good developers know the art of commenting...
+* Too many commenta and your code is probably too complicated or the comment is unnecessary
+* Not enough commenting and no one will want to work with your code... including future you.
+
+.center[![](https://i.ytimg.com/vi/_dpve5TctVU/hqdefault.jpg)]
+---
+class: middle
+
+# Comments
+
+In Python comments are denoted by the '#' character. All text after the '#' is ignored.
+
+```python
+print('Hello, world!') # Prints 'Hello, world!'. Example of over-commenting
+```
+
+---
+class: middle
+
+# Exercises
+
+```python
+print('DESN 210 rocks!') # BTS is my fave!
+```
+
+```python
+# print('DESN 210 rocks!')
+```
+
+```python
+print('Meet me at')
+# print('Taco Bell')
+print('Starbucks')
+```
+```python
+print('#########')
+```
+
+```python
+print('Tom Brady wears #10.')
+```
+---
+class: middle
+
+# Expressions
+
+A piece of code that can contain...
+* Identifiers (Variable names)
+* Literals (An integer or string)
+* Operators (+, -, [])
+
+An expression reduces to a value, called a return value. A return value can be any Python object including numbers, strings, classes, functions, even something called a `None` type.
+
+---
+class: middle
+
+# Expressions
+
+When executing an expression in an interpreter or notebook the final return value is automatically printed.
+
+```python
+>>> 2 + 2
+4
+
+>>> a = 2 + 2
+>>> a # "prints" 4 in the interpreter; it's the return value of the expression a
+4
+```
+
+---
+class: middle
+
+# Side Effects
+
+Expressions can also have "side-effects" meaning they do something other than reducing to a single return value. Our "Hello, world!" program is a good example of an expression with a side effect.
+
+```python
+a = print("Hello, world!")
+print(a)
+```
+
+```python
+None
+```
+
+---
+class: middle
+
+# Exercises
+
+Are each of these identifiers, literals, or operators?
+1. my_var
+2. 5
+3. +
+4. []
+5. 'my_var'
+6. True
+
+What is the difference between a side effect and a return value?
+
+---
+class: middle
+
+# Statements & The Assignment Operator (=)
+
+A one or more logical blocks of expressions are referred to as a statement. A single equals sign is called the assignment operator. The return value from the top level of a statement gets assigned to the identifier to the left of it. That identifier is called a variable.
+
+```python
+>>> a = ((2+9) / 4) + 1
+>>> a
+3.75
+```
+---
+class: middle
+
+# Heads up: = is not ==
+
+* Why doesn't `=` mean "equal to"?
+
+* If it doesn't mean "equal to" what does?
+
+---
+class: middle
+
+# Variables
+
+Using just literal constants can be pretty boring. We need a way of storing information for future use. This is where variables come in. A variable is defined by the previously mentioned assignment operator and can store any Python object.
+
+```python
+>>> a = 2
+>>> b = 10
+>>> a = b + a
+>>> a = a + a
+
+print(a)
+print(b)
+```
+
+What will print?
+---
+class: middle
+
+# Variable naming follows a strict set of rules
+
+The following rules must be obeyed
+1. The first letter must be a letter of the alphabet or an underscore
+2. Every character after the first must by either a letter, a number, or an underscore
+3. Variable names are case sensitive
+4. Variable names must not have the same name as any of Python's reserved `keywords`
+  * Some examples of keywords are `if`, `or`, `class`, `def`, `print`, and `assert`
+
+---
+class: middle
+
+# Exercises
+
+Which of the following are valid variable names?
+
+1. my_counter
+2. MY_COUNTER
+3. 3_digit_zip_code
+4. zip-code
+5. a2
+6. class
+7. _private_var
+8. PizzaShop
+---
+class: middle
+
+# Exercises (cont.)
+
+There are some naming conventions the Python community typically follows that aren't enforced by the language. Consider yourself on your way to becoming a 'Pythonista' if you follow these rules.
+
+1. my_counter
+  * Standard naming convention. All lowercase words separated by underscores. Clean and easy to read.
+2. MY_COUNTER
+  * Global constants (variables that aren't intended to be changed are ALL CAPS. An example would be `PI = 3.14`
+3. 3_digit_zip_code
+  * `SyntaxError`
+4. zip-code
+  * `SyntaxError`
+5. a2
+  * Valid. Might be used for something like the square of `a`.
+6. class
+  * `SyntaxError`
+7. _private_var
+  * If you want to make it know that something shouldn't be used unless you really know what you are doing make the variable `private`-ish by prepending an underscore.
+
+
+---
+class: middle
+
+# Style vs Syntax
+
+Syntax are rules of the language. If you commit a syntax error your code will not run and you will receive an error.
+
+Style is the way in which your code reads. Bad style has no impact on how your program runs or how quickly it executes.
+---
+class: middle
+
+# Importance of Good Styling
+
+While bad style may not cause your program to break this does not mean it is not important. You code should act as a means of communication for what is going on in your program. Thinking about how your code reads and following commonly accepted principles will help you and others read and work on your projects.
+
+You can read more about good style by reading a document called [PEP8](https://www.python.org/dev/peps/pep-0008/).
+
+---
+class: middle
+
+# Examples
+
+```python
+while True print('Hi')         # bad syntax
+```
+```python
+  File "<stdin>", line 1
+    while True print('Hi')
+                   ^
+SyntaxError: invalid syntax
+```
+----------------------
+
+```python
+def make_dictionary(*args):       # Bad style, hard to read
+    x, y = args
+    return dict(**locals())
+
+def make_dictionary(x, y):        # Better style, easier to read
+    return {'x': x, 'y': y}
+
+```
+
+---
+class: middle
+
+# Syntax Errors vs Runtime Exceptions
+
+Errors that are caused by bad syntax are called syntax errors (duh). A syntax error will be caught before you program even begins to run.
+
+Exceptions are errors that occur in a statement at runtime. Exceptions are technically syntactically correct but some assumption about the language has been violated. The program will run up until the exception pops up.
+
+---
+class: middle
+
+# Example: No errors
+
+```python
+for i in range(1, 6):
+    print(i)
+```
+```python
+1
+2
+3
+4
+5
+```
+
+---
+class: middle
+
+# Example: Runtime Exception
+
+```python
+for i in range(1, 6):
+    print(i)
+print(1 / 0)
+```
+```python
+1
+2
+3
+4
+5
+Traceback (most recent call last):
+  File "test.py", line 3, in <module>
+    print(1 / 0)
+ZeroDivisionError: division by zero
+```
+
+---
+class: middle
+
+# Example: Syntax Error
+
+```python
+for i in range(1, 6):
+    print(i)
+print('Hello, world!)
+```
+```python
+  File "<ipython-input-24-a2b806eedc54>", line 3
+    print('Hello, world!)
+                         ^
+SyntaxError: EOL while scanning string literal
+```
+
+---
+class: middle
+
+# Let's take a closer look at the runtime exception output
+```python
+for i in range(1, 6):
+    print(i)
+print(1 / 0)
+```
+```python
+1
+2
+3
+4
+5
+Traceback (most recent call last):        # See next slide
+  File "test.py", line 3, in <module>     # Filename and line where error occurred
+    print(1 / 0)                          # Code written in that line
+ZeroDivisionError: division by zero       # Error type and description
+```
+---
+class: middle
+
+# What does traceback mean?
+
+If the error occurs in a statement that has multiple levels of expressions you will get the full "stack" of expressions that got you to that error.
+
+This is called the 'traceback'. You may also hear to it is the print out of the "call stack".
+
+```python
+>>> def do_some_division(numerator, denominator):
+...     return numerator / denominator
+...
+>>> def call_do_some_division():
+...     do_some_division(1, 0)
+...
+>>> call_do_some_division()
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+  File "<stdin>", line 2, in call_do_some_division
+  File "<stdin>", line 2, in do_some_division
+ZeroDivisionError: division by zero
+```
+
+---
+class: middle
+
+# Questions?
+
+		</textarea>
+		<script src="https://gnab.github.io/remark/downloads/remark-latest.min.js"></script>
+		<script>
+			var slideshow = remark.create();
+		</script>
+		<script>var slideshow = remark.create({
+	navigation: {
+		scroll: false
+	},
+	highlightLines: true
+});
+</script>
+	</body>
+</html>
