@@ -15,9 +15,9 @@
 - [Flow Control](flow_control.html)
 
 ### Problem Sets
-- <a href="ps1.ipynb" download>PS1</a>
+- <a class="clicky_log_download" href="ps1.ipynb" download>PS1</a>
 	- [Solutions](ps1_solutions.html)
-- <a href="ps2.ipynb" download>PS2</a>
+- <a class="clicky_log_download" href="ps2.ipynb" download>PS2</a>
 
 ### Quiz Prep
 - [Quiz 1](quiz_1_topics.html)
