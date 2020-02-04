@@ -6,6 +6,8 @@
 
 ### [Book](https://automatetheboringstuff.com)
 
+### [Google Colab](https://colab.research.google.com/)
+
 ### [Email Me](mailto:bxp271@case.edu)
 
 ### Slides
