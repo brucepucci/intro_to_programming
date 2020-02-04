@@ -15,7 +15,8 @@
 - [Flow Control](flow_control.html)
 
 ### Problem Sets
-
 - <a href="ps1.ipynb" download>PS1</a>
 - <a href="ps2.ipynb" download>PS2</a>
 
+### Quiz Prep
+- [Quiz 1](quiz_1_prep.html)
