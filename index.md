@@ -9,14 +9,14 @@
 ### [Email Me](mailto:bxp271@case.edu)
 
 ### Slides
-- [Intro](intro.html)
-- [Python Intro](python_intro.html)
-- [Data Types](data_types.html)
-- [Flow Control](flow_control.html)
+- <a href="intro.html" class="clicky_log_download">Intro</a>
+- <a href="python_intro.html" class="clicky_log_download">Python Intro</a>
+- <a href="data_types.html" class="clicky_log_download">Data Types</a>
+- <a href="flow_control.html" class="clicky_log_download">Flow Control</a>
 
 ### Problem Sets
 - <a class="clicky_log_download" href="ps1.ipynb" download>PS1</a>
-	- [Solutions](ps1_solutions.html)
+	- <a href="ps1_solutions.html" class="clicky_log_download">Solutions</a>
 - <a class="clicky_log_download" href="ps2.ipynb" download>PS2</a>
 
 ### Quiz Prep
