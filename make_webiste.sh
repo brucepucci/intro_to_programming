@@ -6,6 +6,7 @@ do
 done
 
 cp *.html ../brucepucci.github.io/
+cp /Homeworks/*.html ../brucepucci.github.io/
 
 for file in ./Slides/md/*
 do
