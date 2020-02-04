@@ -16,7 +16,7 @@
 
 ### Problem Sets
 - <a href="ps1.ipynb" download>PS1</a>
-	- [Solutions]([ps1_solutions.html])
+	- [Solutions](ps1_solutions.html)
 - <a href="ps2.ipynb" download>PS2</a>
 
 ### Quiz Prep
