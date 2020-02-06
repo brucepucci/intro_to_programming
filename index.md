@@ -20,6 +20,7 @@
 - <a class="clicky_log_download" href="ps1.ipynb" download>PS1</a>
 	- <a href="ps1_solutions.html" class="clicky_log_download">Solutions</a>
 - <a class="clicky_log_download" href="ps2.ipynb" download>PS2</a>
+	- <a href="ps2_solutions.html" class="clicky_log_download">Solutions</a>
 
 ### Quiz Prep
 - [Quiz 1](quiz_1_topics.html)
