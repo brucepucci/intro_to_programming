@@ -1,4 +1,5 @@
-﻿# DESN 210 / BTEC 420 (Spring 2020)
+﻿
+# DESN 210 / BTEC 420 (Spring 2020)
 
 ## Introduction to Programming for Business Applications
 
@@ -84,8 +85,8 @@ Class schedule and due dates are subject to change. Assignment due dates will be
 | Thu, Jan 30 | Flow Control (if & while)              |
 | Tue, Feb 4  | Integration and Review                 |
 | Thu, Feb 6  | Quiz 1                                 |
-| Tue, Feb 11 | Collections                            |
-| Thu, Feb 13 | Collections                            |
+| Tue, Feb 11 | Containers (lists and dicts)           |
+| Thu, Feb 13 | Containers (lists and dicts)           |
 | Tue, Feb 18 | Flow Control (for)                     |
 | Thu, Feb 20 | Flow Control (for) & Functions         |
 | Tue, Feb 25 | Functions                              |
