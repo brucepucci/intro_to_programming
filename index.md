@@ -15,6 +15,7 @@
 - <a href="python_intro.html" class="clicky_log_download">Python Intro</a>
 - <a href="data_types.html" class="clicky_log_download">Data Types</a>
 - <a href="flow_control.html" class="clicky_log_download">Flow Control</a>
+- <a href="containers.html" class="clicky_log_download">Containers</a>
 
 ### Problem Sets
 - <a class="clicky_log_download" href="ps1.ipynb" download>PS1</a>
