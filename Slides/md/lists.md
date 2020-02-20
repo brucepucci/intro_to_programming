@@ -1272,7 +1272,7 @@ then
 
 Return the index of the max value in a list
 
-[Max Value In List](https://brucepucci.github.io/exercises/max_value_list.html)
+[Max Value In List](https://brucepucci.github.io/exercises/max_value_in_list.html)
 
 ---
 class: middle
