@@ -1,8 +1,6 @@
 class: middle
 
-# Containers
-
-![](https://www.fastbuildcontainer.com/wp-content/uploads/2016/07/Snelbouwcontainergoede.jpg)
+# Lists
 
 ---
 class: middle
@@ -1102,11 +1100,11 @@ my_list.insert(1, 'ghi')
 my_list.append('abc')
 *last_item = my_list.pop()    # pops 'abc' off the back of the list
 *                            # and assigns it to variable last_item
-my_list
+last_item
 ```
 
 ```python
-2
+'abc'
 ```
 
 ---
@@ -1268,11 +1266,11 @@ class: middle
 
 # Exercise
 
-| 0  | 1  | 2  | 3 | 4  | 5  | 6 | 7    | 8  | 9 |
-|----|----|----|---|----|----|---|------|----|---|
-| 10 | 22 | -2 | 0 | 55 | 56 | 1 | -100 | 74 | 2 |
+Return the max value from a list
 
-Save the max value in the list above in the variable max_value
+then
+
+Return the index of the max value in a list
 
 [Max Value In List](https://brucepucci.github.io/exercises/max_value_list.html)
 
@@ -1281,13 +1279,9 @@ class: middle
 
 # Exercise
 
-| 0  | 1  | 2  | 3 | 4  | 5  | 6 | 7    | 8  | 9 |
-|----|----|----|---|----|----|---|------|----|---|
-| 10 | 22 | -2 | 0 | 55 | 56 | 1 | -100 | 74 | 2 |
+Write a program that takes 2 lists and returns True if they have at least 1 member in common.
 
-Save the index of the max value in the list above in the variable max_value_index
-
-[Max Value Index In List](https://brucepucci.github.io/exercises/max_value_index_list.html)
+[Member In Common?](https://brucepucci.github.io/exercises/member_in_common.html)
 	
 ---
 class: middle
@@ -1507,4 +1501,23 @@ print(next(idx_letters))
 (1, 'b')
 ```
 
+---
+class: middle
+
+# Exercise
+
+Write a program to get the element by element difference between the two lists.
+
+Ie subract each element from the seocnd list from each element of the first list.
+
+[Difference In Lists](https://brucepucci.github.io/exercises/difference_in_lists.html)
+
+---
+class: middle
+
+# Exercise
+
+Return all the indexes in a list who's values contain a string
+
+[Find the Strings](https://brucepucci.github.io/exercises/find_the_strings.html)
 
