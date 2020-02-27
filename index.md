@@ -24,6 +24,7 @@
 - <a class="clicky_log_download" href="ps2.ipynb" download>PS2</a>
 	- <a href="ps2_solutions.html" class="clicky_log_download">Solutions</a>
 - <a class="clicky_log_download" href="ps3.ipynb" download>PS3</a>
+	- <a href="ps3_solutions.html" class="clicky_log_download">Solutions</a>
 - <a class="clicky_log_download" href="ps4
 .ipynb" download>PS4</a>
 
