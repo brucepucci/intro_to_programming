@@ -30,6 +30,7 @@
 
 ### Quiz Prep
 - [Quiz 1](quiz_1_topics.html)
+- [Quiz 2](quiz_2_topics.html)
 
 ### In-Class Exercises
 - <a href="exercises/creating_a_list.html" class="clicky_log_download">Creating A List</a>
