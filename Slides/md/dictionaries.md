@@ -512,5 +512,4 @@ NBA MVPs
 * Who is the MVP with the longest name?
 
 [NBA MVPs](https://brucepucci.github.io/exercises/nba_mvps.html)
-Add after class
 ---
