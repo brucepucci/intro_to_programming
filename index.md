@@ -42,3 +42,4 @@
 - <a href="exercises/difference_in_lists.html" class="clicky_log_download">Difference In Lists</a>
 - <a href="exercises/max_value_in_list.html" class="clicky_log_download">Max Value In List</a>
 - <a href="exercises/member_in_common.html" class="clicky_log_download">Member In Common</a>
+- <a href="exercises/nba_mvps.html" class="clicky_log_download">NBA MVPs</a>
