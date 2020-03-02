@@ -27,6 +27,7 @@
 	- <a href="ps3_solutions.html" class="clicky_log_download">Solutions</a>
 - <a class="clicky_log_download" href="ps4
 .ipynb" download>PS4</a>
+	- <a href="ps4_solutions.html" class="clicky_log_download">Solutions</a>
 
 ### Quiz Prep
 - [Quiz 1](quiz_1_topics.html)
