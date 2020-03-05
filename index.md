@@ -10,6 +10,8 @@
 
 ### [Email Me](mailto:bxp271@case.edu)
 
+### [Final Info](/FinalProjectInfo.html) - [Groups](/groups.html)
+
 ### Slides
 - <a href="intro.html" class="clicky_log_download">Intro</a>
 - <a href="python_intro.html" class="clicky_log_download">Python Intro</a>
