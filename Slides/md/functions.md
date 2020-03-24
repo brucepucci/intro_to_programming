@@ -691,7 +691,49 @@ print(x)
 0
 ```
 
-**IMPORTANT PIECE HERE... DON'T DO THIS. YOU WILL BREAK SOMETHING.**
+**IMPORTANT PIECE HERE... DON'T DO THIS! YOU WILL BREAK SOMETHING!**
+
+---
+
+# The `global` keyword
+
+You can essentially "ship" a variable up to global scope from local scope with the global keyword. This is called scope promotion
+
+```python
+
+def my_func():
+    global x
+    x = 1
+
+print(x)   # Won't be there yet because the code hasn't run
+```
+
+```
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+NameError: name 'x' is not defined
+```
+
+---
+
+# The `global` keyword
+
+You can essentially "ship" a variable up to global scope from local scope with the global keyword. This is called scope promotion
+
+```python
+
+def my_func():
+    global x
+    x = 1
+
+my_func()
+print(x)
+```
+
+```
+1
+```
+
 
 ---
 class: middle
