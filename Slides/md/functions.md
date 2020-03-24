@@ -37,9 +37,9 @@ class: middle
 
 # Functions in Python operate is almost exactly the same way.
 
-A function is a set of statements that take inputs, do some specific computation and produces a predicatble output.
+A function is a set of statements that take inputs, do some specific computation and produces a predictable output.
 
-We've seen functions in all of our homeworks thus far, we just didn't go too far in-depth about how they are created or used.
+We've seen functions in all of our homework thus far, we just didn't go too far in-depth about how they are created or used.
 
 ---
 
@@ -52,7 +52,7 @@ We've seen functions in all of our homeworks thus far, we just didn't go too far
 *def
 ```
 
-`def` is a keyword in python that **defines** a function. The following word will be the name that the function is dinfed and referenced by.
+`def` is a keyword in python that **defines** a function. The following word will be the name that the function is defined and referenced by.
 
 ---
 
@@ -149,7 +149,7 @@ def f(x):
 *    return x
 ```
 
-The return statement is optional. `None` will be returned if no return statment is executed by the end of the code block. The function immediately stops executing once a return statement is hit and it "returns" the value that the expression to it's right evaluates to. This means that if there is code after a return statement and the return statement runs the code that follows will never run.
+The return statement is optional. `None` will be returned if no return statement is executed by the end of the code block. The function immediately stops executing once a return statement is hit and it "returns" the value that the expression to it's right evaluates to. This means that if there is code after a return statement and the return statement runs the code that follows will never run.
 
 ---
 
@@ -161,7 +161,7 @@ def f(x):
     return x
 ```
 
-This is called a function **definition**. The code inside of the function is not actualy run, the function is just registered with the Python interpreter for use later.
+This is called a function **definition**. The code inside of the function is not actually run, the function is just registered with the Python interpreter for use later.
 
 ---
 
@@ -188,7 +188,7 @@ class: middle
 # Why use functions?
 
 * **Modularity** - Write once - Use anywhere
-* **Maintainablity** - A single source of logic for some group of logic
+* **Maintainability** - A single source of logic for some group of logic
 * **Testability** - Confidence that a function works over-and-over again
 * **Encapsulation** - Wrap related logic up a easily digestible pieces
 
@@ -258,7 +258,7 @@ class: middle
 
 # Encapsulation
 
-Encapsulation refers to the action of enclosing some logic in or as if in a capsule. This is sort of in support to the prior 3 concepts in that if we propery encapsulate our logic it will be more modular, more testable and easier to maintain.
+Encapsulation refers to the action of enclosing some logic in or as if in a capsule. This is sort of in support to the prior 3 concepts in that if we properly encapsulate our logic it will be more modular, more testable and easier to maintain.
 
 ### Example
 
@@ -275,7 +275,7 @@ class: middle
 
 # Encapsulation
 
-Encapsulation refers to the action of enclosing some logic in or as if in a capsule. This is sort of in support to the prior 3 concepts in that if we propery encapsulate our logic it will be more modular, more testable and easier to maintain.
+Encapsulation refers to the action of enclosing some logic in or as if in a capsule. This is sort of in support to the prior 3 concepts in that if we properly encapsulate our logic it will be more modular, more testable and easier to maintain.
 
 ### Example
 
@@ -299,7 +299,7 @@ class: middle
 
 # Encapsulation
 
-Encapsulation refers to the action of enclosing some logic in or as if in a capsule. This is sort of in support to the prior 3 concepts in that if we propery encapsulate our logic it will be more modular, more testable and easier to maintain.
+Encapsulation refers to the action of enclosing some logic in or as if in a capsule. This is sort of in support to the prior 3 concepts in that if we properly encapsulate our logic it will be more modular, more testable and easier to maintain.
 
 ### Example
 
@@ -318,7 +318,7 @@ class: middle
 
 # Encapsulation
 
-Encapsulation refers to the action of enclosing some logic in or as if in a capsule. This is sort of in support to the prior 3 concepts in that if we propery encapsulate our logic it will be more modular, more testable and easier to maintain.
+Encapsulation refers to the action of enclosing some logic in or as if in a capsule. This is sort of in support to the prior 3 concepts in that if we properly encapsulate our logic it will be more modular, more testable and easier to maintain.
 
 ### Example
 
@@ -345,7 +345,7 @@ class: middle
 
 # Function Composition
 
-The previous example of combining functions is called "function composition". I'm sure you've seen soemthing like this before in algebra class. As a refresher it looked something like this for `f(g(x))`...
+The previous example of combining functions is called "function composition". I'm sure you've seen something like this before in algebra class. As a refresher it looked something like this for `f(g(x))`...
 
 ![](https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSyV1AdlLfRV4CGSVAgSf17ewUCqr5bOQwkO1xfuW1CklgQq4qF)
 
@@ -425,7 +425,7 @@ def g(x):
     return x / (x - 2)
 
 *def reduced_fg(x):      # test against algebraic reduction
-*    return (x - 2) / (2*(2 * x - 3))
+*    return (x - 2) / (2 * (2 * x - 3))
 ```
 
 ---
@@ -475,9 +475,9 @@ class: middle
 
 # The Call Stack
 
-This conversation is analous to how function calls and the "call stack" works in Python. Once we call a function we jump into that function until we either finish it or call another function; similar to either finishing a thought or starting a new though in the conversation example.
+This conversation is analogous to how function calls and the "call stack" works in Python. Once we call a function we jump into that function until we either finish it or call another function; similar to either finishing a thought or starting a new though in the conversation example.
 
-Its called a stack becuase when a new function is called we put it on top of the stack (aka "push"). Once a function finishes we remove it from the stack (aka "pop", we've seen pop before used in a similar concept).
+Its called a stack because when a new function is called we put it on top of the stack (aka "push"). Once a function finishes we remove it from the stack (aka "pop", we've seen pop before used in a similar concept).
 
 ---
 class: middle
@@ -514,3 +514,103 @@ def d():
 
 a()
 ```
+
+---
+class: middle
+
+# Scope
+
+Scope refers to the portion of source code in which a variables's name can be used. In Python, variables created in functions are known to have **local scope**, meaning they are only accessible within that function. A variable that has local scope is called a **local variable**.
+
+The opposite local scope is **global scope** and a variable that has the property of global scope is called a **global variable**. A global variable is accessible from anywhere in the program.
+
+Variable must have either global or local scope.
+
+---
+class: middle
+
+# Scope
+
+Try to think of scope as a container. Once that container is destroyed all of the variables is destroyed all variables inside of it are forgotten. Global scope is created when a program starts running and is destroyed when the program finishes. There is only 1 global scope.
+
+Local scope is created when a function is called and is destroyed when it finishes. The next time you call this function it has no recollection of what happened the last time it ran. A new variable "container" is created every time. There can be an arbitrary amount of local scopes.
+
+---
+class: middle
+
+# Scope
+
+Operations inside of a function have access to local and global variables. Operations outside of a function can only access global variables.
+
+
+```python
+*x = 0  # create a variable in gloabl scope
+```
+
+---
+class: middle
+
+# Scope
+
+Operations inside of a function have access to local and global variables. Operations outside of a function can only access global variables.
+
+```python
+x = 0
+
+def my_func():
+*    y = 1    # create a variable in scope local to my_func
+```
+
+---
+class: middle
+
+# Scope
+
+Operations inside of a function have access to local and global variables. Operations outside of a function can only access global variables.
+
+```python
+x = 0
+
+def my_func():
+    y = 1
+*    print(x)   # We can access global vaibales
+*    print(y)   # and local varibales in a function
+
+my_func()
+```
+
+```
+0
+1
+```
+
+---
+class: middle
+
+# Scope
+
+Operations inside of a function have access to local and global variables. Operations outside of a function can only access global variables.
+
+```python
+x = 0
+
+def my_func():
+    y = 1
+
+*print(x)   # We can access global vaibales in global scope
+*print(y)   # But not local ones
+```
+
+```
+0
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+NameError: name 'y' is not defined
+```
+
+---
+class: middle
+
+# Scope
+
+If we refer back to our call stack example we can see that local scope pertains to all variables created in each item of the stack. When the item on the stack gets destroyed the variables are forgotten.
