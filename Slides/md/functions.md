@@ -635,6 +635,65 @@ print(x)
 ```
 
 ---
+
+# Variables can be created in local scope that have the same name as a variable in global scope.
+
+The globally scoped variable is non-addressable for the rest of the duration of the local scope. The global scope variable will retain it's value after the local scope is terminated.
+
+```python
+x = 0
+
+*def my_func():
+*    x = 1    # create a variable with the same name
+*    print(x) # print the LOCAL vaiable not the global one
+```
+---
+
+# Variables can be created in local scope that have the same name as a variable in global scope.
+
+The globally scoped variable is non-addressable for the rest of the duration of the local scope. The global scope variable will retain it's value after the local scope is terminated.
+
+```python
+x = 0
+
+def my_func():
+    x = 1
+    print(x)
+
+*my_func()
+*print(x)
+```
+
+```
+1
+0
+```
+
+---
+
+# Variables can be created in local scope that have the same name as a variable in global scope.
+
+The globally scoped variable is non-addressable for the rest of the duration of the local scope. The global scope variable will retain it's value after the local scope is terminated.
+
+```python
+x = 0
+
+def my_func():
+    x = 1
+    print(x)
+
+my_func()
+print(x)
+```
+
+```
+1
+0
+```
+
+**IMPORTANT PIECE HERE... DON'T DO THIS. YOU WILL BREAK SOMETHING.**
+
+---
 class: middle
 
 # Next Class Set Up
