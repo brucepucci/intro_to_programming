@@ -21,16 +21,12 @@ class: middle
 `f(x) = x - 2`
 
 x: input
+
 f(x): output
 
 x - 2: operation
-f: name of the function
 
-We could store `f(x)` somewhere as well, in math this would look something like...
-
-`y = f(x) = x - 2`
-
-y: contains value of output
+f: function name
 
 ---
 class: middle
@@ -178,9 +174,6 @@ To use the function we must **call** the function by referencing its name and fo
 ```
 *f(2)
 ```
----
-
-# Exercises
 
 ---
 class: middle
@@ -254,7 +247,6 @@ assert capitalize('hello') == 'Hell0'
 If this were not a function it wouldn't be testable.
 
 ---
-class: middle
 
 # Encapsulation
 
@@ -271,7 +263,6 @@ Encapsulation refers to the action of enclosing some logic in or as if in a caps
 ```
 
 ---
-class: middle
 
 # Encapsulation
 
@@ -295,7 +286,6 @@ def square_list(nums):
 ```
 
 ---
-class: middle
 
 # Encapsulation
 
@@ -314,7 +304,6 @@ def square_list(nums):
 *    return sum(square_list(nums))  # use square_list to make this easy
 ```
 ---
-class: middle
 
 # Encapsulation
 
@@ -341,7 +330,6 @@ def sum_of_squares(nums):
 ```
 
 ---
-class: middle
 
 # Function Composition
 
@@ -350,7 +338,6 @@ The previous example of combining functions is called "function composition". I'
 ![](https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSyV1AdlLfRV4CGSVAgSf17ewUCqr5bOQwkO1xfuW1CklgQq4qF)
 
 ---
-class: middle
 
 # Function Composition
 
@@ -361,7 +348,6 @@ Let's code out a more specific example. The algebra for what we wanna code looks
 Let's just make 2 function `f` and `g` and then compose them so we get a proper answer.
 
 ---
-class: middle
 
 # Function Composition
 
@@ -373,7 +359,6 @@ class: middle
 ```
 
 ---
-class: middle
 
 # Function Composition
 
@@ -388,7 +373,6 @@ def f(x):
 ```
 
 ---
-class: middle
 
 # Function Composition
 
@@ -411,7 +395,6 @@ f(g(2))
 ```
 
 ---
-class: middle
 
 # Function Composition
 
@@ -429,7 +412,6 @@ def g(x):
 ```
 
 ---
-class: middle
 
 # Function Composition
 
@@ -447,7 +429,7 @@ def reduced_fg(x):
 ```
 
 ```python
-f(g(10)) == reduced_fg(10)
+*f(g(10)) == reduced_fg(10)
 ```
 
 ```python
@@ -536,7 +518,6 @@ Try to think of scope as a container. Once that container is destroyed all of th
 Local scope is created when a function is called and is destroyed when it finishes. The next time you call this function it has no recollection of what happened the last time it ran. A new variable "container" is created every time. There can be an arbitrary amount of local scopes.
 
 ---
-class: middle
 
 # Scope
 
@@ -548,7 +529,6 @@ Operations inside of a function have access to local and global variables. Opera
 ```
 
 ---
-class: middle
 
 # Scope
 
@@ -562,7 +542,6 @@ def my_func():
 ```
 
 ---
-class: middle
 
 # Scope
 
@@ -585,7 +564,6 @@ my_func()
 ```
 
 ---
-class: middle
 
 # Scope
 
@@ -614,3 +592,51 @@ class: middle
 # Scope
 
 If we refer back to our call stack example we can see that local scope pertains to all variables created in each item of the stack. When the item on the stack gets destroyed the variables are forgotten.
+
+---
+class: middle
+
+# Not only are global variables accessible inside of functions but we can also change their value
+
+Back to our example...
+
+```python
+x = 0
+
+def my_func():
+    x += 1  # Change the value of x.
+
+*print(x)   # Notice that my_func doesnt do anything
+            # until it is called
+```
+
+```
+0
+```
+
+---
+
+# Not only are global variables accessible inside of functions but we can also change their value
+
+```python
+x = 0
+
+def my_func():
+    x += 1  # Change the value of x.
+
+print(x)
+*my_func()  # change the value of x
+*print(x)   # see updated x
+```
+
+```
+0
+1
+```
+
+---
+class: middle
+
+# Next Class Set Up
+
+In general it's a pretty bad idea to modify or access global variables inside of a function. So, how we we pass state from function to function or scope to scope? The answers is with something called `parameters`... which we will cover Thursday.
