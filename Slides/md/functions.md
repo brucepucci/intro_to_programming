@@ -52,6 +52,8 @@ We've seen functions in all of our homeworks thus far, we just didn't go too far
 *def
 ```
 
+`def` is a keyword in python that **defines** a function. The following word will be the name that the function is dinfed and referenced by.
+
 ---
 
 # Syntax
@@ -63,6 +65,8 @@ We've seen functions in all of our homeworks thus far, we just didn't go too far
 ```python
 *def f
 ```
+
+Function names must be a single word and must start with either a letter or underscore.
 
 ---
 
@@ -145,7 +149,7 @@ def f(x):
 *    return x
 ```
 
-The return statement is optional. `None` will be returned if no return statment is executed.
+The return statement is optional. `None` will be returned if no return statment is executed by the end of the code block. The function immediately stops executing once a return statement is hit and it "returns" the value that the expression to it's right evaluates to. This means that if there is code after a return statement and the return statement runs the code that follows will never run.
 
 ---
 
@@ -174,6 +178,9 @@ To use the function we must **call** the function by referencing its name and fo
 ```
 *f(2)
 ```
+---
+
+# Exercises
 
 ---
 class: middle
@@ -322,10 +329,188 @@ def square_list(nums):
         result.append(item ** 2)
     return result
 
+def sum_of_squares(nums):
+    return sum(square_list(nums))
+
 *my_list = [1, 2, 3, 4]
 *sum_of_squares(my_list)    # test our new function
 ```
 
 ```
 30
+```
+
+---
+class: middle
+
+# Function Composition
+
+The previous example of combining functions is called "function composition". I'm sure you've seen soemthing like this before in algebra class. As a refresher it looked something like this for `f(g(x))`...
+
+![](https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSyV1AdlLfRV4CGSVAgSf17ewUCqr5bOQwkO1xfuW1CklgQq4qF)
+
+---
+class: middle
+
+# Function Composition
+
+Let's code out a more specific example. The algebra for what we wanna code looks something like this...
+
+![](https://mathbitsnotebook.com/Algebra2/Functions/gans5G.gif)
+
+Let's just make 2 function `f` and `g` and then compose them so we get a proper answer.
+
+---
+class: middle
+
+# Function Composition
+
+![](https://mathbitsnotebook.com/Algebra2/Functions/gans5G.gif)
+
+```python
+*def f(x):
+*    return 1 / (x+3)
+```
+
+---
+class: middle
+
+# Function Composition
+
+![](https://mathbitsnotebook.com/Algebra2/Functions/gans5G.gif)
+
+```python
+def f(x):
+    return 1 / (x+3)
+
+*def g(x):
+*    return x / (x - 2)
+```
+
+---
+class: middle
+
+# Function Composition
+
+![](https://mathbitsnotebook.com/Algebra2/Functions/gans5G.gif)
+
+```python
+def f(x):
+    return 1 / (x + 3)
+
+def g(x):
+    return x / (x - 2)
+```
+
+```python
+f(g(2))
+```
+
+```python
+0.23529411764705882
+```
+
+---
+class: middle
+
+# Function Composition
+
+![](https://mathbitsnotebook.com/Algebra2/Functions/gans5G.gif)
+
+```python
+def f(x):
+    return 1 / (x + 3)
+
+def g(x):
+    return x / (x - 2)
+
+*def reduced_fg(x):      # test against algebraic reduction
+*    return (x - 2) / (2*(2 * x - 3))
+```
+
+---
+class: middle
+
+# Function Composition
+
+![](https://mathbitsnotebook.com/Algebra2/Functions/gans5G.gif)
+
+```python
+def f(x):
+    return 1 / (x + 3)
+
+def g(x):
+    return x / (x - 2)
+
+def reduced_fg(x):
+    return (x - 2) / (2 * (2 * x - 3))
+```
+
+```python
+f(g(10)) == reduced_fg(10)
+```
+
+```python
+True
+```
+
+---
+class: middle
+
+# The Call Stack
+
+This is pretty important concept and I actually think the book does a pretty good high level job explaining it so I am gonna borrow a lot from there. First something a little conceptual digression.
+
+---
+class: middle
+
+# The Call Stack
+
+"Imagine that you have a meandering conversation with someone. You talk about your friend Alice, which then reminds you of a story about your coworker Bob, but first you have to explain something about your cousin Carol. You finish you story about Carol and go back to talking about Bob, and when you finish your story about Bob, you go back to talking about Alice. But then you are reminded about your brother David, so you tell a story about him, and then get back to finishing your original story about Alice."
+
+![](https://automatetheboringstuff.com/2e/images/000109.jpg)
+
+---
+class: middle
+
+# The Call Stack
+
+This conversation is analous to how function calls and the "call stack" works in Python. Once we call a function we jump into that function until we either finish it or call another function; similar to either finishing a thought or starting a new though in the conversation example.
+
+Its called a stack becuase when a new function is called we put it on top of the stack (aka "push"). Once a function finishes we remove it from the stack (aka "pop", we've seen pop before used in a similar concept).
+
+---
+class: middle
+
+# The Call Stack
+
+Since we are online let's use an [online stack visualizer](https://www.cs.usfca.edu/~galles/visualization/SimpleStack.html).
+
+
+
+---
+class: middle
+
+# The Call Stack
+```python
+def a():
+    print('a() starts')
+    b()
+    d()
+    print('a() returns')
+
+def b():
+    print('b() starts')
+    c()
+    print('b() returns')
+
+def c():
+    print('c() starts')
+    print('c() returns')
+
+def d():
+    print('d() starts')
+    print('d() returns')
+
+a()
 ```
