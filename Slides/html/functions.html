@@ -759,9 +759,337 @@ print(x)
 ---
 class: middle
 
-# Next Class Set Up
+# Functions as a "Black Box"
 
-In general it's a pretty bad idea to modify or access global variables inside of a function. So, how we we pass state from function to function or scope to scope? The answers is with something called `parameters`... which we will cover Thursday.
+Often times you can think of a function as a **black box**. Meaning that all you need to concern yourself with are thinking about inputs and outputs. What happens in the middle, the code that actually does something, is completely extraneous to you. You expect it to do something you just don't really care *how* it does it. This is why having a strong understanding of the specifics of how information gets in and out is so important.
+
+---
+class: middle
+
+# Function Parameters And Arguments
+
+When a function is defined you specify the **parameters** you expect the function to receive. Parameters are variables for use inside of a function. Parameters contain values called **arguments** that are passed when the function is called.
+
+* Parameters -> Specified when defining a function
+* Arguments -> Values stored in parameters when a function is called
+
+```python
+def my_func(x):   # x is a parameter
+    return x + 1
+
+my_func(1)   # 1 is an argument to the
+             # x parameter in the function my_func
+```
+
+---
+class: middle
+
+# Defining Function Parameters
+
+Function parameters are defined between the parenthesis in the function definition.
+
+```python
+* def my_func(<PARAMETERS GO HERE>):
+    something = do_something()
+    return something
+```
+
+Arguments to these parameters can either be required or optional...
+* **Required Arguments** - Must be passed when function is called, no default value if not passed
+* **Optional Arguments** - optionally passed when function is called, has a default value if not passed
+
+---
+# Argument Default Values
+
+When you define a function and set your parameters you have the option to set a **default value**. This is the value that will be assigned to the parameter if an argument is not passed.
+
+```python
+* def hello_world(punct='!'): # Create a parameter named punct that is optional.
+*                             # Defaults to '!' if not passed
+*    return 'Hello, world' + punct
+```
+
+---
+# Argument Default Values
+
+When you define a function and set your parameters you have the option to set a **default value**. This is the value that will be assigned to the parameter if an argument is not passed.
+
+```python
+ def hello_world(punct='!'): # Create a parameter named punct that is optional.
+                            # Defaults to '!' if not passed
+    return 'Hello, world' + punct
+```
+
+```python
+*hello_world()    # Not passing punct
+```
+
+```python
+'Hello, world!'
+```
+---
+# Argument Default Values
+
+When you define a function and set your parameters you have the option to set a **default value**. This is the value that will be assigned to the parameter if an argument is not passed.
+
+```python
+ def hello_world(punct='!'): # Create a parameter named punct that is optional.
+                            # Defaults to '!' if not passed
+    return 'Hello, world' + punct
+```
+
+```python
+*hello_world('.')    # punct is '.'
+```
+
+```python
+'Hello, world.'
+```
+
+---
+# Argument Default Values
+
+When you define a function and set your parameters you have the option to set a **default value**. This is the value that will be assigned to the parameter if an argument is not passed.
+
+```python
+ def hello_world(punct='!'): # Create a parameter named punct that is optional.
+                            # Defaults to '!' if not passed
+    return 'Hello, world' + punct
+```
+
+```python
+*hello_world('?')    # punct is '?'
+```
+
+```python
+'Hello, world?'
+```
+
+---
+# Argument Default Values
+
+If no default value is set in your parameter definition it is then required that pass an argument for that param. If there is a default value then an arg for that respective param is not required.
+
+```python
+ *def hello_person(name, punct='!'): # name is required
+ *                                   # punct is optional
+ *   return 'Hello, ' + name + punct
+```
+
+---
+# Argument Default Values
+
+If no default value is set in your parameter definition it is then required that pass an argument for that param. If there is a default value then an arg for that respective param is not required.
+
+```python
+def hello_person(name, punct='!'): # name is required
+                                   # punct is optional
+    return 'Hello, ' + name + punct
+```
+
+```python
+*hello_person('Bruce')
+```
+
+```
+'Hello, Bruce!'
+```
+
+---
+# Argument Default Values
+
+If no default value is set in your parameter definition it is then required that pass an argument for that param. If there is a default value then an arg for that respective param is not required.
+
+```python
+def hello_person(name, punct='!'): # name is required
+                                   # punct is optional
+    return 'Hello, ' + name + punct
+```
+
+```python
+*hello_person()
+```
+
+```
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+TypeError: hello_person() missing 1 required positional argument: 'name'
+```
+---
+
+# Argument Default Values
+
+If no default value is set in your parameter definition it is then required that pass an argument for that param. If there is a default value then an arg for that respective param is not required.
+
+```python
+def hello_person(name, punct='!'): # name is required
+                                   # punct is optional
+    return 'Hello, ' + name + punct
+```
+
+```python
+*hello_person('Bruce', '.')
+```
+
+```
+'Hello, Bruce.'
+```
+
+---
+class: middle
+
+# Let's take a look at a "real life" function definition...
+
+#### From [xgboost](https://xgboost.readthedocs.io/en/latest/python/python_api.html)...
+```python
+fit(X, y, sample_weight=None, base_margin=None, eval_set=None, eval_metric=None, early_stopping_rounds=None, verbose=True, xgb_model=None, sample_weight_eval_set=None, callbacks=None)
+```
+
+We have 11 parameters....
+
+What if we want to give an argument to just a few of these and leave the rest as defaults?
+
+What if we want only want to give arguments to the required 2 and `callbacks`?
+
+Do we need to fill out all 11 to get there?
+
+---
+class: middle
+
+# Let's take a look at a "real life" function definition...
+
+#### From [xgboost](https://xgboost.readthedocs.io/en/latest/python/python_api.html)...
+```python
+fit(X, y, sample_weight=None, base_margin=None, eval_set=None, eval_metric=None, early_stopping_rounds=None, verbose=True, xgb_model=None, sample_weight_eval_set=None, callbacks=None)
+```
+
+We have 11 parameters....
+
+What if we want to give an argument to just a few of these and leave the rest as defaults?
+
+What if we want only want to give arguments to the required 2 and `callbacks`?
+
+Do we need to fill out all 11 to get there?
+
+**No.** We use what are called **keyword arguments**.
+
+---
+class: middle
+
+# Keyword Vs Positional Arguments
+
+In general, the first argument you give will fulfill the first parameter defined, the second will fulfill the second and so on... This is called using **positional argument (or arg)**, as the position in which you send them matters.
+
+However, if you want to send a specific argument to a specific parameter you can use that arguments "keyword" defined in the function definition. This is called a **keyword argument (or kwarg)**.
+
+```python
+def my_func(a, b, c):
+    return a + b + c
+
+my_func(1, 2, 3)         # calling my_func with positional arguments
+my_func(a=1, b=2, c=3)  # calling my_func with keyword arguments
+my_func(b=1, a=2, c=3)  # if you use kwargs the position does not matter
+```
+
+---
+class: middle
+
+# Keyword Vs Positional Arguments
+
+When a  function has default parameters you only have to give the required arguments. You have the option of using the keyword to replace default values in the optional arguments.
+
+Going back to our "real world" example...
+
+#### From [xgboost](https://xgboost.readthedocs.io/en/latest/python/python_api.html)...
+```python
+fit(X, y, sample_weight=None, base_margin=None, eval_set=None, eval_metric=None, early_stopping_rounds=None, verbose=True, xgb_model=None, sample_weight_eval_set=None, callbacks=None)
+```
+
+```python
+fit(my_X, my_y, early_stopping_rounds=50)
+```
+
+`X` and `y` were given positionally and the only default I chose to change was `early_stopping_rounds`.
+
+---
+class: middle
+
+# Required arguments must come before optional ones in the function definition.
+
+Yes...
+```python
+def my_func(a, b, c=4):
+    return a + b + c
+```
+
+No...
+```python
+def my_func(a, b=4, c):
+    return a + b + c
+```
+
+```python
+  File "<stdin>", line 1
+SyntaxError: non-default argument follows default argument
+```
+
+---
+# Exercises!
+
+```python
+def triangle_area(base, height):
+    return base * height * .5
+```
+```python
+triangle_area(10, 20) # What is the return value?
+triangle_area(20, 10) # What is the return value?
+```
+---
+# Exercises!
+
+```python
+def triangle_area(base, height):
+    return base * height * .5
+```
+```python
+triangle_area(10, 20) # What is the return value?
+triangle_area(20, 10) # What is the return value?
+```
+```python
+triangle_area(10, 20) # What is the base equal to?
+triangle_area(height=20, base=10) # What is base equal to?
+```
+
+---
+# Exercises!
+
+```python
+def triangle_area(base, height):
+    return base * height * .5
+
+def scale_area(area, scaler):
+    return area * scaler
+
+def scaled_triangle_area(base, height, scaler=1):
+    area = triangle_area(base, height)
+    scaled_area = scale_area(area, scaler)
+    return scaled_area
+```
+```python
+scaled_triangle_area(10, 10)   # Walk us through the call stack
+scaled_triangle_area(10, 10, scaler=2)   # What changes?
+```
+
+---
+# Exercises!
+
+Check out the documentation (here)[https://scikit-learn.org/stable/modules/generated/sklearn.metrics.mean_squared_error.html#sklearn.metrics.mean_squared_error]
+
+Call the mean_squared_error function with any made-up name for parameters `y_true`, `y_pred` but set `squared` to False
+```python
+scaled_triangle_area(10, 10)   # Walk us through the call stack
+scaled_triangle_area(10, 10, scaler=2)   # What changes?
+```
 		</textarea>
 		<script src="https://gnab.github.io/remark/downloads/remark-latest.min.js"></script>
 		<script>
