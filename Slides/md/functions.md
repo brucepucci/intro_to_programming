@@ -1065,7 +1065,18 @@ scaled_triangle_area(10, 10, scaler=2)   # What changes?
 Check out the documentation (here)[https://scikit-learn.org/stable/modules/generated/sklearn.metrics.mean_squared_error.html#sklearn.metrics.mean_squared_error]
 
 Call the mean_squared_error function with any made-up name for parameters `y_true`, `y_pred` but set `squared` to False
+
+---
+# Exercises!
+
 ```python
-scaled_triangle_area(10, 10)   # Walk us through the call stack
-scaled_triangle_area(10, 10, scaler=2)   # What changes?
+"""
+name: add
+arguments:
+    a (numeric),
+    b (numeric),
+    inverse (optional, default = False)
+returns: a + b or a + b * -1 if inverse
+
+"""
 ```
