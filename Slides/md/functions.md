@@ -1062,7 +1062,7 @@ scaled_triangle_area(10, 10, scaler=2)   # What changes?
 ---
 # Exercises!
 
-Check out the documentation (here)[https://scikit-learn.org/stable/modules/generated/sklearn.metrics.mean_squared_error.html#sklearn.metrics.mean_squared_error]
+Check out the documentation [here](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.mean_squared_error.html#sklearn.metrics.mean_squared_error)
 
 Call the mean_squared_error function with any made-up name for parameters `y_true`, `y_pred` but set `squared` to False
 
@@ -1077,6 +1077,12 @@ arguments:
     b (numeric),
     inverse (optional, default = False)
 returns: a + b or a + b * -1 if inverse
+<<<<<<< HEAD
 
 """
 ```
+=======
+ 
+"""
+```
+>>>>>>> 7ac5ff34caa7886b6f73207a1c0bb845c921598b
