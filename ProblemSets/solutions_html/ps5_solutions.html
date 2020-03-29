@@ -2,7 +2,7 @@
 <html>
 <head><meta charset="utf-8" />
 
-<title>ps5_solutiuons</title>
+<title>ps5_solutions</title>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
@@ -13108,15 +13108,23 @@ div#notebook {
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Example-Exercise">Example Exercise<a class="anchor-link" href="#Example-Exercise">&#182;</a></h2><p>name: add</p>
+<h2 id="Example-Exercise">Example Exercise<a class="anchor-link" href="#Example-Exercise">&#182;</a></h2><p>name:</p>
+
+<pre><code>add
+
+</code></pre>
 <p>arguments:</p>
 
 <pre><code>* a (numeric),
+
 * b (numeric),
+
 * inverse (bool; optional: default=False)
 
 </code></pre>
-<p>returns: a + b or a + b * -1 if inverse</p>
+<p>returns:</p>
+
+<pre><code>a + b or a + b * -1 if inverse</code></pre>
 
 </div>
 </div>
@@ -13156,15 +13164,23 @@ div#notebook {
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Exercise-#1">Exercise #1<a class="anchor-link" href="#Exercise-#1">&#182;</a></h2><p>name: calc_paycheck</p>
+<h2 id="Exercise-#1">Exercise #1<a class="anchor-link" href="#Exercise-#1">&#182;</a></h2><p>name:</p>
+
+<pre><code>calc_paycheck
+
+</code></pre>
 <p>arguments:</p>
 
 <pre><code>* hours (int),
+
 * wage (float),
+
 * ot (bool; optional: default=False),
 
 </code></pre>
-<p>returns: calcuate the total weekly pay for a worker with the formula <code>hours</code> * <code>wage</code>. If the worker is overtime eligible (denoted by parameter <code>ot</code>) they will reveive 150% of their hourly wage for any time over 40 hours.</p>
+<p>returns:</p>
+
+<pre><code>calcuate the total weekly pay for a worker with the formula `hours` * `wage`. If the worker is overtime eligible (denoted by parameter `ot`) they will reveive 150% of their hourly wage for any time over 40 hours.</code></pre>
 
 </div>
 </div>
@@ -13206,17 +13222,30 @@ div#notebook {
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Exercise-#2">Exercise #2<a class="anchor-link" href="#Exercise-#2">&#182;</a></h2><p>name: better_deal</p>
+<h2 id="Exercise-#2">Exercise #2<a class="anchor-link" href="#Exercise-#2">&#182;</a></h2><p>name:</p>
+
+<pre><code>better_deal
+
+</code></pre>
 <p>arguments:</p>
 
 <pre><code>* lump_sum (numeric),
+
 * hours (int),
+
 * wage (float),
+
 * ot (bool; optional: default=False),
 
 </code></pre>
-<p>returns: Use the function you wrote in Exercise #1 (<code>calc_paycheck</code>) to chose between a "lump sum" payment or "hourly wage" for a given task. If the total pay for a lump sum is &gt;= the total pay from an hourly wage return "lump sum" otherwise return "hourly wage".</p>
-<p>aote: You MUST call the function <code>calc_paycheck</code> from exercise 1.</p>
+<p>returns:</p>
+
+<pre><code>Use the function you wrote in Exercise #1 (`calc_paycheck`) to chose between a "lump sum" payment or "hourly wage" for a given task. If the total pay for a lump sum is &gt;= the total pay from an hourly wage return the string "lump sum" otherwise return the string "hourly wage".
+
+</code></pre>
+<p>Note:</p>
+
+<pre><code>You MUST call the function `calc_paycheck` from exercise 1 in your function.</code></pre>
 
 </div>
 </div>
@@ -13257,14 +13286,21 @@ div#notebook {
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Exercise-#3">Exercise #3<a class="anchor-link" href="#Exercise-#3">&#182;</a></h2><p>name: calc_distance</p>
+<h2 id="Exercise-#3">Exercise #3<a class="anchor-link" href="#Exercise-#3">&#182;</a></h2><p>name:</p>
+
+<pre><code>calc_distance
+
+</code></pre>
 <p>arguments:</p>
 
-<pre><code>* point_a (tuple of length 2, ie (4, 2), where index 0 is x-coordinant in a 2d coordinate plane)
+<pre><code>* point_a (tuple of length 2, ie (4, 2) as coordinants in a 2d coordinate plane)
+
 * point_b (same as point_a)
 
 </code></pre>
-<p>returns: The distance between the 2 points in a 2d coordinate plane</p>
+<p>returns:</p>
+
+<pre><code>The distance between the 2 points in a 2d coordinate plane</code></pre>
 
 </div>
 </div>
@@ -13302,13 +13338,24 @@ div#notebook {
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Exercise-#4">Exercise #4<a class="anchor-link" href="#Exercise-#4">&#182;</a></h2><p>name: closest_city</p>
+<h2 id="Exercise-#4">Exercise #4<a class="anchor-link" href="#Exercise-#4">&#182;</a></h2><p>name:</p>
+
+<pre><code>closest_city
+
+</code></pre>
 <p>arguments:</p>
 
 <pre><code>* taget_city (string, must be a key in `city_coordinates` which is defined below)
 
 </code></pre>
-<p>returns: The name of the nearest city to the target city. Use the function <code>calc_distance</code> that you defined in ecercise #3. Consider the dictionary <code>city_coordinates</code> given below a global variable and use it's values as the location of each city defined by it's respective key. You must run the cell below to register the dictionary city coordinates</p>
+<p>returns:</p>
+
+<pre><code>The name of the nearest city in straight line distance to the target city. Use the function `calc_distance` that you defined in ecercise #3. Consider the dictionary `city_coordinates` given below a global variable and use it's values as the location of each city defined by it's respective key. You must run the cell below to register the dictionary `city_coordinates`. See the assert statements for useage examples.
+
+</code></pre>
+<p>Note:</p>
+
+<pre><code>You MUST call the function `calc_distance` from exercise 3 in your function.</code></pre>
 
 </div>
 </div>
