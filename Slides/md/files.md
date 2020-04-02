@@ -350,3 +350,12 @@ os.listdir('./folder_a')     # We can pass a path to listdir to list that paths 
 ```
 ['file_4.txt', 'file_1.txt', 'file_2.txt', 'file_3.txt', 'folder_a1']
 ```
+
+---
+class: middle
+
+# Google Colab isn't running on your local machine. How we use `os` over there?
+
+I will document this somewhere else but you will need to look through your Google Drive to read and write files.
+
+Quick demo...
