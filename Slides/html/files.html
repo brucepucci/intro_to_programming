@@ -162,9 +162,9 @@ For example, if I am running a command from `/Users/brucepucci` and want to acce
  * Relative path: `Desktop/my_file.py`
  * Absolute path: `/Users/brucepucci/Desktop/my_file.py`
 
- Any valid path that does not begin with a slash is a relative path.
+Any valid path that does not begin with a slash is a relative path.
 
- ---
+---
 class: middle
 
 # Some relative path syntax
@@ -177,71 +177,71 @@ A single dot (.) at the beginning of a path references the path that you are cur
 
 `../my_file.py` : Relative path to my_file.py one directory up from the path we are currently operating in
 
- ---
+---
+class: middle
+
+# Exercises
+
+```
+*├── my_project                      <-----
+│   ├── folder_a
+│   │   ├── file_1.txt
+│   │   ├── file_2.txt
+│   │   ├── file_3.txt
+│   │   ├── file_4.txt
+│   │   └── folder_a1
+│   │      └── my_secret.key
+│   ├── folder_b
+│   │   ├── data.csv
+│   │   └── data.json
+│   ├── folder_c
+│   └── my_code.py
+```
+
+Say we are in the folder denoted by the arrow. Give a relative path to `my_code.py`
+
+---
 class: middle
 
 # Exercises
 
 ```
 ├── my_project
-│   ├── folder_a
-│   │   ├── file_1.txt
-│   │   ├── file_2.txt
-│   │   ├── file_3.txt
-│   │   ├── file_4.txt
-│   │   └── folder_a1                     <----
-│   │       └── my_secret.key
-│   ├── folder_b
-│   │   ├── data.csv
-│   │   └── data.json
-│   ├── folder_c
-│   └── my_code.py
+│   ├── folder_a
+│   │   ├── file_1.txt
+│   │   ├── file_2.txt
+│   │   ├── file_3.txt
+│   │   ├── file_4.txt
+*│   │   └── folder_a1                      <-----
+│   │      └── my_secret.key
+│   ├── folder_b
+│   │   ├── data.csv
+│   │   └── data.json
+│   ├── folder_c
+│   └── my_code.py
 ```
 
 Say we are in the folder denoted by the arrow. Give a relative path to `my_code.py`
 
- ---
+---
 class: middle
 
 # Exercises
 
 ```
-├── my_project                     <----
-│   ├── folder_a
-│   │   ├── file_1.txt
-│   │   ├── file_2.txt
-│   │   ├── file_3.txt
-│   │   ├── file_4.txt
-│   │   └── folder_a1
-│   │       └── my_secret.key
-│   ├── folder_b
-│   │   ├── data.csv
-│   │   └── data.json
-│   ├── folder_c
-│   └── my_code.py
-```
-
-Say we are in the folder denoted by the arrow. Give a relative path to `my_code.py`
-
- ---
-class: middle
-
-# Exercises
-
-```
-├── my_project                     <----
-│   ├── folder_a
-│   │   ├── file_1.txt
-│   │   ├── file_2.txt
-│   │   ├── file_3.txt
-│   │   ├── file_4.txt
-│   │   └── folder_a1
-│   │       └── my_secret.key
-│   ├── folder_b
-│   │   ├── data.csv
-│   │   └── data.json
-│   ├── folder_c
-│   └── my_code.py
+*├── my_project                      <-----
+│   ├── folder_a
+│   │   ├── file_1.txt
+│   │   ├── file_2.txt
+│   │   ├── file_3.txt
+│   │   ├── file_4.txt
+│   │   └── folder_a1
+│   │      └── my_secret.key
+│   ├── folder_b
+│   │   ├── data.csv
+│   │   └── data.json
+│   ├── folder_c
+│   └── my_code.py
 ```
 
 Say we are in the folder denoted by the arrow. Give a relative path to `data.json`
@@ -257,18 +257,18 @@ I am going to create a directory called `my_project` in my Documents folder that
 
 ```
 ├── my_project
-│   ├── folder_a
-│   │   ├── file_1.txt
-│   │   ├── file_2.txt
-│   │   ├── file_3.txt
-│   │   ├── file_4.txt
-│   │   └── folder_a1
-│   │       └── my_secret.key
-│   ├── folder_b
-│   │   ├── data.csv
-│   │   └── data.json
-│   ├── folder_c
-│   └── my_code.py
+│   ├── folder_a
+│   │   ├── file_1.txt
+│   │   ├── file_2.txt
+│   │   ├── file_3.txt
+│   │   ├── file_4.txt
+│   │   └── folder_a1
+│   │      └── my_secret.key
+│   ├── folder_b
+│   │   ├── data.csv
+│   │   └── data.json
+│   ├── folder_c
+│   └── my_code.py
 ```
 
 All of the example code I will provide is going to run from my_code.py
@@ -279,26 +279,24 @@ class: middle
 # Basic use of the `os` module
 
 ```
-├── my_project
-│   ├── folder_a
-│   │   ├── file_1.txt
-│   │   ├── file_2.txt
-│   │   ├── file_3.txt
-│   │   ├── file_4.txt
-│   │   └── folder_a1
-│   │       └── my_secret.key
-│   ├── folder_b
-│   │   ├── data.csv
-│   │   └── data.json
-│   ├── folder_c
-│   └── my_code.py
+*├── my_project                      <----- Running in here
+│   ├── folder_a
+│   │   ├── file_1.txt
+│   │   ├── file_2.txt
+│   │   ├── file_3.txt
+│   │   ├── file_4.txt
+│   │   └── folder_a1
+│   │      └── my_secret.key
+│   ├── folder_b
+│   │   ├── data.csv
+│   │   └── data.json
+│   ├── folder_c
+│   └── my_code.py
 ```
 
 Print out the file path where the code is running...
 
 ```python
-### Assume this is running in my_code.py
-
 import os
 
 os.getcwd()     # get current working directory
@@ -314,26 +312,24 @@ class: middle
 # Basic use of the `os` module
 
 ```
-├── my_project
-│   ├── folder_a
-│   │   ├── file_1.txt
-│   │   ├── file_2.txt
-│   │   ├── file_3.txt
-│   │   ├── file_4.txt
-│   │   └── folder_a1
-│   │       └── my_secret.key
-│   ├── folder_b
-│   │   ├── data.csv
-│   │   └── data.json
-│   ├── folder_c
-│   └── my_code.py
+*├── my_project                      <----- Running in here
+│   ├── folder_a
+│   │   ├── file_1.txt
+│   │   ├── file_2.txt
+│   │   ├── file_3.txt
+│   │   ├── file_4.txt
+│   │   └── folder_a1
+│   │      └── my_secret.key
+│   ├── folder_b
+│   │   ├── data.csv
+│   │   └── data.json
+│   ├── folder_c
+│   └── my_code.py
 ```
 
 List all the files in a directory
 
 ```python
-### Assume this is running in my_code.py
-
 import os
 
 os.listdir()     # list files in current working directory
@@ -349,26 +345,24 @@ class: middle
 # Basic use of the `os` module
 
 ```
-├── my_project
-│   ├── folder_a
-│   │   ├── file_1.txt
-│   │   ├── file_2.txt
-│   │   ├── file_3.txt
-│   │   ├── file_4.txt
-│   │   └── folder_a1
-│   │       └── my_secret.key
-│   ├── folder_b
-│   │   ├── data.csv
-│   │   └── data.json
-│   ├── folder_c
-│   └── my_code.py
+*├── my_project                      <----- Running in here
+│   ├── folder_a
+│   │   ├── file_1.txt
+│   │   ├── file_2.txt
+│   │   ├── file_3.txt
+│   │   ├── file_4.txt
+│   │   └── folder_a1
+│   │      └── my_secret.key
+│   ├── folder_b
+│   │   ├── data.csv
+│   │   └── data.json
+│   ├── folder_c
+│   └── my_code.py
 ```
 
 List all the files in a directory
 
 ```python
-### Assume this is running in my_code.py
-
 import os
 
 os.listdir('./folder_a')     # We can pass a path to listdir to list that paths files
