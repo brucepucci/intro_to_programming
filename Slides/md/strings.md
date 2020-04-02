@@ -26,9 +26,10 @@ class: middle
 # Exercises
 
 * Convert the integer 42 to a string
+* Create a multi-line string
 * Use an escape character to put a single quote in a sting
 * Use an index the last character in the string "CWRU" in 2 different ways
-* Slide the string "Case Western Reserve University" to just return "Case"
+* Slice the string "Case Western Reserve University" to just return "Case"
 * Put the strings "Case", "Western", "Reserve", "University" together to read "Case Western Reserve University"
 
 ---
@@ -291,6 +292,26 @@ delimiter.join(my_students)
 class: middle
 
 # Exercises
+
+Write a function to count the number of times each character appears in a string. Store the result in a dictionary.
+
+---
+class: middle
+
+# Exercises
+
+[Teddy Speech](https://brucepucci.github.io/exercises/teddy_speech.html)
+
+Find out which word occurs the most in the given speech..
+
+---
+class: middle
+
+# Exercises
+
+[Home Prices](https://brucepucci.github.io/exercises/home_prices.html)
+
+How many homes in [this](https://people.sc.fsu.edu/~jburkardt/data/csv/homes.csv) data set sold at or more than their list price?
 
 ---
 class: middle
