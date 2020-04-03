@@ -9,7 +9,7 @@ class: middle
 
 # The Python Standard Library
 
-While Python ships with many "built-in" functions it falls well short of what is needed to build something useful. Python maintains this idea of being **batteries included** so it ships with a whole lot of code that you can use to make your life easier. They ship in modules called ***libraries***, although the terms module and library can be used interchangeably. There are over 200 of them here are some of the most useful...
+While Python ships with many "built-in" functions it falls well short of what is needed to build something useful. Python maintains this idea of being **batteries included**. So, it ships with a whole lot of code that you can use to make your life easier. They ship in modules called **libraries**, although the terms module and library can be used interchangeably. There are over 200 of them here are some of the more useful ones...
 
 * `os` - Dealing with the operating system
 * `re` - Writing and executing regular expressions
@@ -23,10 +23,10 @@ class: middle
 
 # The Python Standard Library vs PIP
 
-While there are hundreds of libraries in the Python standard library there are tens of thousands of libraries in the Python package installer, known as PIP. The PIP and the standard library differ in the following ways...
+While there are hundreds of libraries in the Python standard library there are tens of thousands of libraries in the Python package installer, known as PIP. PIP and the standard library differ in the following ways...
 
 * PIP packages need to be installed by the user, standard library libraries come with Python
-* Standard Library libraries are maintained by the Python Software Foundation and PIP libraries are maintained by a 3rd parties
+* Standard Library libraries are maintained by the Python Software Foundation and PIP libraries are maintained by 3rd parties
 * Standard Library packages are well tested and well documented on the Python website and PIP package reliability, testing and  documentation is up to the third party developers.
 
 ---
