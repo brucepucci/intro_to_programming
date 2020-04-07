@@ -129,14 +129,14 @@ class: middle
 
 A path like `/Users/brucepucci/Desktop` is an **absolute path** because it give you the entirety of the path from the root (`/`) of the file system to where the actual subject is located. An absolute path always refers to the same place no matter where in the system you reference it from.
 
-A **relative path** references a location relative to the place where you currently are in the file path. Relative paths do not start at the root of the filesystem, they start from where you currently are.
+A **relative path** references a location relative to the place where you currently are in the file system. Relative paths do not start at the root of the filesystem, they start from where you currently are.
 
 ---
 class: middle
 
 # Absolute vs. Relative Paths
 
-For example, if I am running a command from `/Users/brucepucci` and want to access a file on the desktop named `my_file.py`...
+For example, if I am running a command from `/Users/brucepucci` and want to access a file at `/Users/brucepucci/Desktop/my_file.py`...
 
  * Relative path: `Desktop/my_file.py`
  * Absolute path: `/Users/brucepucci/Desktop/my_file.py`
@@ -155,6 +155,13 @@ A single dot (.) at the beginning of a path references the path that you are cur
 `./my_file.py` : Relative path to my_file.py from the path we are currently operating in
 
 `../my_file.py` : Relative path to my_file.py one directory up from the path we are currently operating in
+
+---
+class: middle
+
+# One more slide on relative vs absolute paths....
+
+![](https://automatetheboringstuff.com/2e/images/000057.jpg)
 
 ---
 class: middle
@@ -354,8 +361,492 @@ os.listdir('./folder_a')     # We can pass a path to listdir to list that paths 
 ---
 class: middle
 
-# Google Colab isn't running on your local machine. How we use `os` over there?
+# Filename Extention
 
-I will document this somewhere else but you will need to look through your Google Drive to read and write files.
+If a file path is an actual file and not a folder it will typically end with a dot and a few characters. This is known as the "filename exxtension" or "file extenstion". It doesn't do anything special to the file, it's just a way of communicating what type of file it is. Some examples of file extensions are...
 
-Quick demo...
+* .html - HTML source file
+* .xlsx - Microsoft Excel file
+* .csv - Comma Separated Values Files
+* .txt - Plain text file
+* .json - JavaScript Object Notation file
+* .py - Python source file
+
+---
+class: middle
+
+# "Plain Text"
+
+A file is considered a "plain text" file if it can be read and edited with a simple text editor. Meaning it cannot contain any "meta" information about it's contents.
+
+| Plain Text Files  | Non-Plain Text Files |
+|-------------------|----------------------|
+| Plain Text (.txt) | Rich Text (.rtf)     |
+| Python (.py)      | Executable (.exe)    |
+| JSON (.json)      | Application (.app)   |
+| SQL (.sql)        | Excel (.xlsx)        |
+| HTML (.html)      | Word (.docx)         |
+| CSV (.csv)        | PowerPoint (.pptx)   |
+
+**Why do we care?** It is simple to read and write plain text files using base Python. To read and write other formats we need to use libraries.
+
+---
+# File Objects
+
+A file object is a temporary reference to an opened file. When you have an opened file you have the ability to read and/or write to that file. A file object can be saved to a variable and used to do any reading and/or writing using the `open()` built-in function.
+
+```python
+*my_file = open('my_file.txt', 'r') # Open a file at the relative file path 'my_file.txt'
+                                    # Access to that file is later available through the my_file identifier
+```
+
+---
+# File Objects
+
+A file object is a temporary reference to an opened file. When you have an opened file you have the ability to read and/or write to that file. A file object can be saved to a variable and used to do any reading and/or writing using the `open()` built-in function.
+
+```python
+my_file = open('my_file.txt', 'r')
+*my_contents = my_file.read()    # Read the contents of my_file and store the string in my_contents
+```
+
+---
+# File Objects
+
+A file object is a temporary reference to an opened file. When you have an opened file you have the ability to read and/or write to that file. A file object can be saved to a variable and used to do any reading and/or writing using the `open()` built-in function.
+
+```python
+my_file = open('my_file.txt', 'r')
+my_contents = my_file.read()
+*my_file.close()    # It's always a good idea to close a file after you're done with it.
+```
+
+---
+class: middle
+
+# The `open()` Function
+
+`open(file, mode='r', buffering=-1, encoding=None, errors=None, newline=None, closefd=True, opener=None)`
+
+**Parameters**
+
+* file: The path and name of the file
+* mode: A string, define which mode you want to open the file in:
+  * "r" - Read - Default value. Opens a file for reading, error if the file does not exist
+  * "a" - Append - Opens a file for appending, creates the file if it does not exist
+  * "w" - Write - Opens a file for writing, creates the file if it does not exist
+  * "x" - Create - Creates the specified file, returns an error if the file exist
+
+---
+class: middle
+
+# File Object Methods
+
+* `close()` - Closes the file
+  * `my_file.close()`
+* `read()` - Read the file contents to a string
+  * `my_file.read()`
+* `readlines()` - Read the file contents to a list of strings, split by newlines
+  * `my_file.readlines()`
+* `write()` - Write a string to a file
+  * `my_file.write('This string will get written')`
+* `writelines()` - Write a list of strings to a file with newlines in-between elements
+  * `my_file.writelines(['This string will get written', 'So will this one'])`
+
+
+---
+
+# Reading and Writing Example
+
+```python
+*my_file = open('my_file.txt', 'w')   # Create/open a file name my_file.txt
+*                                     # Can only be written to
+```
+
+---
+
+# Reading and Writing Example
+
+```python
+my_poem = open('my_poem.txt', 'w')
+
+fuzzy_wuzzy = """Fuzzy Wuzzy Was a Bear
+Fuzzy Wuzzy Had no Hair
+Fuzzy Wuzzy Wasn't Fuzzy 
+Was He?
+Was he Bare?"""
+
+*my_poem.write(fuzzy_wuzzy)    # Write fuzzy_wuzzy string to the file
+```
+
+---
+
+# Reading and Writing Example
+
+```python
+my_poem = open('my_poem.txt', 'w')
+
+fuzzy_wuzzy = """Fuzzy Wuzzy Was a Bear
+Fuzzy Wuzzy Had no Hair
+Fuzzy Wuzzy Wasn't Fuzzy 
+Was He?
+Was he Bare?"""
+
+my_poem.write(fuzzy_wuzzy)
+*my_poem.close(fuzzy_wuzzy)
+```
+
+---
+
+# Reading and Writing Example
+
+```python
+* my_poem = open('my_poem.txt', 'r')   # Now we are going to open my_file for reading
+```
+
+---
+
+# Reading and Writing Example
+
+```python
+my_poem = open('my_poem.txt', 'r')
+*contents = my_poem.read()   # Read the text from the file
+```
+
+---
+
+# Reading and Writing Example
+
+```python
+my_poem = open('my_poem.txt', 'r')
+contents = my_poem.read()
+*my_poem.close()
+*print(contents)
+```
+
+```
+Fuzzy Wuzzy Was a Bear
+Fuzzy Wuzzy Had no Hair
+Fuzzy Wuzzy Wasn't Fuzzy 
+Was He?
+Was he Bare?
+```
+
+---
+
+# Reading and Writing Example
+
+```python
+my_poem = open('my_poem.txt', 'r')
+*contents = my_poem.readlines()    # readlines() instead
+my_poem.close()
+print(contents)
+```
+
+```
+['Fuzzy Wuzzy Was a Bear\n', 'Fuzzy Wuzzy Had no Hair\n', "Fuzzy Wuzzy Wasn't Fuzzy \n", 'Was He?\n', 'Was he Bare?']
+```
+
+---
+
+# Reading and Writing Example
+
+```python
+my_poem = open('my_poem.txt', 'w')    # Reopen for writing
+*my_poem.write('Lalala')
+my_poem.close()
+
+my_poem = open('my_poem.txt', 'r')    # Reopen for reading
+contents = my_poem.read()
+my_poem.close()
+
+print(contents)    # We wrote over our old text
+```
+
+```
+Lalala
+```
+
+---
+
+# Reading and Writing Example
+
+```python
+my_poem = open('my_poem.txt', 'a')    # If we would have put a 'a' it would have appended to the end instead
+*my_poem.write('Lalala')
+my_poem.close()
+
+my_poem = open('my_poem.txt', 'r')    # Reopen for reading
+contents = my_poem.read()
+my_poem.close()
+
+print(contents)    # We wrote over our old text
+```
+
+```
+Fuzzy Wuzzy Was a Bear
+Fuzzy Wuzzy Had no Hair
+Fuzzy Wuzzy Wasn't Fuzzy 
+Was He?
+Was he Bare?Lalala
+```
+
+---
+
+# Reading and Writing Example
+
+```python
+my_poem = open('my_poem.txt', 'a')    # If we would have put a 'a' it would have appended to the end instead
+*my_poem.write('Lalala')
+my_poem.close()
+
+my_poem = open('my_poem.txt', 'r')    # Reopen for reading
+contents = my_poem.read()
+my_poem.close()
+
+print(contents)    # We wrote over our old text
+```
+
+```
+Fuzzy Wuzzy Was a Bear
+Fuzzy Wuzzy Had no Hair
+Fuzzy Wuzzy Wasn't Fuzzy 
+Was He?
+Was he Bare?Lalala
+```
+
+---
+# JavaScript Object Notation (JSON)
+
+JSON is a file specification used for sharing data. Information is stored in plain text and it is widely used across many programming languages.
+
+The JSON format is syntactically identical to the code for creating JavaScript objects. It actually looks a little like Python dictionaries as well...
+
+```json
+{
+  "name": "Zophie",
+  "isCat": true, 
+  "miceCaught": 0,
+  "napsTaken": 37.5, 
+  "felineIQ": null
+}
+```
+
+---
+# JavaScript Object Notation (JSON)
+
+JSON is a file specification used for sharing data. Information is stored in plain text and it is widely used across many programming languages.
+
+The JSON format is syntactically identical to the code for creating JavaScript objects. It actually looks a little like Python dictionaries as well...
+
+```json
+{
+  "name": "Zophie",
+  "isCat": true, 
+  "miceCaught": 0,
+  "napsTaken": 37.5, 
+  "felineIQ": null
+}
+```
+
+... OK, it actually looks a lot like Python ...
+
+All we have to change is the capitalization of `true` and `null` to `None`
+
+---
+# JSON support in Python
+
+Python provides a JSON library which allows you to write convert Python objects to JSON and back. It also provides support to write those objects to files.
+
+```python
+* import json   # Bring in the json library from the standard lib
+```
+
+---
+# JSON support in Python
+
+Python provides a JSON library which allows you to write convert Python objects to JSON and back. It also provides support to write those objects to files.
+
+```python
+import json
+
+my_cat = {
+  "name": "Zophie",
+  "isCat": True,
+  "miceCaught": 0,
+  "napsTaken": 37.5,
+  "felineIQ": None
+}
+
+*json.dumps(my_cat)    # "dumps" aka dump string
+*                      # encodes a Python object as a json string
+```
+
+```
+'{"name": "Zophie", "isCat": true, "miceCaught": 0, "napsTaken": 37.5, "felineIQ": null}'
+```
+
+---
+# JSON support in Python
+
+Python provides a JSON library which allows you to write convert Python objects to JSON and back. It also provides support to write those objects to files.
+
+```python
+import json
+
+my_json = '{"name": "Zophie", "isCat": true, "miceCaught": 0, "napsTaken": 37.5, "felineIQ": null}'
+
+*my_cat = json.reads(my_json)    # "reads" aka read string
+*                                # decodes a JSON string into a python object
+```
+
+---
+# JSON support in Python
+
+Python provides a JSON library which allows you to write convert Python objects to JSON and back. It also provides support to write those objects to files.
+
+```python
+import json
+
+my_json = '{"name": "Zophie", "isCat": true, "miceCaught": 0, "napsTaken": 37.5, "felineIQ": null}'
+
+my_cat = json.reads(my_json)
+
+type(my_cat)
+```
+
+```
+<class 'dict'>
+```
+
+---
+# JSON support in Python
+
+Python provides a JSON library which allows you to write convert Python objects to JSON and back. It also provides support to write those objects to files.
+
+```python
+import json
+
+my_json = '{"name": "Zophie", "isCat": true, "miceCaught": 0, "napsTaken": 37.5, "felineIQ": null}'
+
+my_cat = json.reads(my_json)
+
+*my_cat
+```
+
+```
+{'name': 'Zophie', 'isCat': True, 'miceCaught': 0, 'napsTaken': 37.5, 'felineIQ': None}
+```
+
+---
+# JSON support in Python
+
+Python provides a JSON library which allows you to write convert Python objects to JSON and back. It also provides support to write those objects to files.
+
+```python
+import json
+
+my_json = '{"name": "Zophie", "isCat": true, "miceCaught": 0, "napsTaken": 37.5, "felineIQ": null}'
+
+my_cat = json.reads(my_json)
+
+*my_cat['name']
+```
+
+```
+'Zophie'
+```
+
+---
+# We can encode any basic Python datatype as JSON
+
+```python
+json.dumps('Hello')
+```
+```
+'"Hello"'
+```
+
+```python
+json.dumps(['This', 'is', 'my', 'list'])
+```
+```
+'["This", "is", "my", "list"]'
+```
+
+```python
+json.dumps(('This', 'is', 'my', 'tuple'))   # tuples don't exist in json so it uses a list
+                                            # It'll be a list when we decode it back
+```
+```
+'["This", "is", "my", "tuple"]'
+```
+
+---
+# JSON is plain text... This means we can store it in a file.
+
+The `json` package actually provides some nice functionality to do this. Just use `dump` and `read` instead of `dumps` and `reads` and pass in a file object.
+
+```python
+
+my_cat = {
+  "name": "Zophie",
+  "isCat": True,
+  "miceCaught": 0,
+  "napsTaken": 37.5,
+  "felineIQ": None
+}
+
+*file = open('my_cat.json', 'w')    # open a file to write to
+```
+
+---
+# JSON is plain text... This means we can store it in a file.
+
+The `json` package actually provides some nice functionality to do this. Just use `dump` and `read` instead of `dumps` and `reads` and pass in a file object.
+
+```python
+
+my_cat = {
+  "name": "Zophie",
+  "isCat": True,
+  "miceCaught": 0,
+  "napsTaken": 37.5,
+  "felineIQ": None
+}
+
+file = open('my_cat.json', 'w')
+json.dump(my_cat, file)    # write my_cat to file in json form
+file.close()
+```
+
+my_cat.json file contains
+```
+{"name": "Zophie", "isCat": true, "miceCaught": 0, "napsTaken": 37.5, "felineIQ": null}
+```
+
+---
+# JSON is plain text... This means we can store it in a file.
+
+The `json` package actually provides some nice functionality to do this. Just use `dump` and `read` instead of `dumps` and `reads` and pass in a file object.
+
+```python
+*file = open('my_cat.json', 'r')      # open my_cat to read from
+```
+
+---
+# JSON is plain text... This means we can store it in a file.
+
+The `json` package actually provides some nice functionality to do this. Just use `dump` and `read` instead of `dumps` and `reads` and pass in a file object.
+
+```python
+file = open('my_cat.json', 'r')
+*my_cat = json.load(file)     # Read the json string into my cat as a dictionary
+*file.close()
+
+print(my_cat)
+```
+
+```
+{'name': 'Zophie', 'isCat': True, 'miceCaught': 0, 'napsTaken': 37.5, 'felineIQ': None}
+```
