@@ -363,7 +363,7 @@ class: middle
 
 # Filename Extention
 
-If a file path is an actual file and not a folder it will typically end with a dot and a few characters. This is known as the "filename exxtension" or "file extenstion". It doesn't do anything special to the file, it's just a way of communicating what type of file it is. Some examples of file extensions are...
+If a file path is an actual file and not a folder it will typically end with a dot and a few characters. This is known as the "filename exxtension" or "file extensions. It doesn't do anything special to the file, it's just a way of communicating what type of file it is. Some examples of file extensions are...
 
 * .html - HTML source file
 * .xlsx - Microsoft Excel file
@@ -397,7 +397,7 @@ A file object is a temporary reference to an opened file. When you have an opene
 
 ```python
 *my_file = open('my_file.txt', 'r') # Open a file at the relative file path 'my_file.txt'
-                                    # Access to that file is later available through the my_file identifier
+*                                 # Access to that file is later available through the my_file identifier
 ```
 
 ---
@@ -458,14 +458,18 @@ class: middle
 
 # Reading and Writing Example
 
+First let's write a file...
+
 ```python
-*my_file = open('my_file.txt', 'w')   # Create/open a file name my_file.txt
-*                                     # Can only be written to
+*my_poem = open('my_poem.txt', 'w')   # Create/open a file name my_file.txt
+*                                    # Can only be written to
 ```
 
 ---
 
 # Reading and Writing Example
+
+First let's write a file...
 
 ```python
 my_poem = open('my_poem.txt', 'w')
@@ -483,6 +487,8 @@ Was he Bare?"""
 
 # Reading and Writing Example
 
+First let's write a file...
+
 ```python
 my_poem = open('my_poem.txt', 'w')
 
@@ -493,12 +499,14 @@ Was He?
 Was he Bare?"""
 
 my_poem.write(fuzzy_wuzzy)
-*my_poem.close(fuzzy_wuzzy)
+*my_poem.close()
 ```
 
 ---
 
 # Reading and Writing Example
+
+Now let's read that file...
 
 ```python
 * my_poem = open('my_poem.txt', 'r')   # Now we are going to open my_file for reading
@@ -508,6 +516,8 @@ my_poem.write(fuzzy_wuzzy)
 
 # Reading and Writing Example
 
+Now let's read that file...
+
 ```python
 my_poem = open('my_poem.txt', 'r')
 *contents = my_poem.read()   # Read the text from the file
@@ -516,6 +526,8 @@ my_poem = open('my_poem.txt', 'r')
 ---
 
 # Reading and Writing Example
+
+Now let's read that file...
 
 ```python
 my_poem = open('my_poem.txt', 'r')
@@ -536,6 +548,8 @@ Was he Bare?
 
 # Reading and Writing Example
 
+Now let's read that file in a slightly different way...
+
 ```python
 my_poem = open('my_poem.txt', 'r')
 *contents = my_poem.readlines()    # readlines() instead
@@ -550,6 +564,8 @@ print(contents)
 ---
 
 # Reading and Writing Example
+
+Appending to a file? 
 
 ```python
 my_poem = open('my_poem.txt', 'w')    # Reopen for writing
@@ -571,29 +587,7 @@ Lalala
 
 # Reading and Writing Example
 
-```python
-my_poem = open('my_poem.txt', 'a')    # If we would have put a 'a' it would have appended to the end instead
-*my_poem.write('Lalala')
-my_poem.close()
-
-my_poem = open('my_poem.txt', 'r')    # Reopen for reading
-contents = my_poem.read()
-my_poem.close()
-
-print(contents)    # We wrote over our old text
-```
-
-```
-Fuzzy Wuzzy Was a Bear
-Fuzzy Wuzzy Had no Hair
-Fuzzy Wuzzy Wasn't Fuzzy 
-Was He?
-Was he Bare?Lalala
-```
-
----
-
-# Reading and Writing Example
+Appending to a file.
 
 ```python
 my_poem = open('my_poem.txt', 'a')    # If we would have put a 'a' it would have appended to the end instead
@@ -679,7 +673,7 @@ my_cat = {
 }
 
 *json.dumps(my_cat)    # "dumps" aka dump string
-*                      # encodes a Python object as a json string
+*                     # encodes a Python object as a json string
 ```
 
 ```
@@ -697,7 +691,7 @@ import json
 my_json = '{"name": "Zophie", "isCat": true, "miceCaught": 0, "napsTaken": 37.5, "felineIQ": null}'
 
 *my_cat = json.reads(my_json)    # "reads" aka read string
-*                                # decodes a JSON string into a python object
+*                               # decodes a JSON string into a python object
 ```
 
 ---
