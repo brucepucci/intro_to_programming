@@ -124,10 +124,318 @@ class: middle
 | Many of handy numerical methods        | Very few numerical methods             |
 | Great for tabular data                 | Great for general purpose programming  |
 
+---
+# Creating a Pandas Series
 
+```python
+*import pandas as pd  # import pandas and alias it to pd
+```
+
+---
+# Creating a Pandas Series
+
+```python
+import pandas as pd
+
+*my_series = pd.Series([0, 1, 2, 3, 4, 5, 6, 7, 8, 9]) # Wrap a list with pd.Series()
+```
+
+---
+# Creating a Pandas Series
+
+```python
+import pandas as pd
+
+my_series = pd.Series([0, 1, 2, 3, 4, 5, 6, 7, 8, 9])
+*print(my_series)
+```
+
+```
+0    0
+1    1
+2    2
+3    3
+4    4
+5    5
+6    6
+7    7
+8    8
+9    9
+dtype: int64
+```
+
+---
+# Creating a Pandas Series
+
+```python
+import pandas as pd
+
+my_series = pd.Series([0, 1, 2, 3, 4, 5, 6, 7, 8, 9])
+*print(my_series[0])   # Look up by index
+```
+
+```
+0
+```
+
+---
+# Creating a Pandas Series
+
+```python
+import pandas as pd
+
+my_series = pd.Series([0, 1, 2, 3, 4, 5, 6, 7, 8, 9])
+*my_series.index = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j']
+
+print(my_series)
+```
+
+```
+a    0
+b    1
+c    2
+d    3
+e    4
+f    5
+g    6
+h    7
+i    8
+j    9
+dtype: int64
+```
+
+---
+# Creating a Pandas Series
+
+```python
+import pandas as pd
+
+my_series = pd.Series([0, 1, 2, 3, 4, 5, 6, 7, 8, 9])
+my_series.index = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j']
+
+*print(my_series['b'])  ## lookup by index
+```
+
+```
+1
+```
+
+---
+# Doing something with a Pandas Series
+
+There are a ton of methods you can call on a series. Most are math/stats based.
+
+```python
+import pandas as pd
+
+my_series = pd.Series([0, 1, 2, 3, 4, 5, 6, 7, 8, 9])
+
+*print(my_series.max())  ## return the max value
+```
+
+```
+9
+```
+
+---
+# Doing something with a Pandas Series
+
+There are a ton of methods you can call on a series. Most are math/stats based.
+
+```python
+import pandas as pd
+
+my_series = pd.Series([0, 1, 2, 3, 4, 5, 6, 7, 8, 9])
+
+*print(my_series.mean())  ## return the mean value
+```
+
+```
+4.5
+```
+
+---
+# Doing something with a Pandas Series
+
+There are a ton of methods you can call on a series. Most are math/stats based.
+
+```python
+import pandas as pd
+
+my_series = pd.Series([0, 1, 2, 3, 4, 5, 6, 7, 8, 9])
+
+*print(my_series.describe())  ## summarize our data
+```
+
+```
+count    10.00000
+mean      4.50000
+std       3.02765
+min       0.00000
+25%       2.25000
+50%       4.50000
+75%       6.75000
+max       9.00000
+dtype: float64
+```
+
+---
+# Doing something with a Pandas Series
+
+There are a ton of methods you can call on a series. Most are math/stats based.
+
+```python
+import pandas as pd
+
+my_series = pd.Series([0, 1, 2, 3, 4, 5, 6, 7, 8, 9])
+
+description = my_series.describe()   # Desciption is a Series with index on previous slide
+print(description['count'])   # Use it like a Series
+```
+
+```
+count    10.0
+```
+
+---
+class: middle
+
+# Mathematical Operations in Pandas are "element wise"
+
+When performing a mathematical operation on 2 Pandas Series' we do so **element wise**. Meaning we add the 1st element from Series a to the 1st element of Series b then the 2nd element from Series a to the 2nd element of series b... and so on. This results in a series of the same length being returned.
+
+---
+class: middle
+
+# "Element Wise" operations in action
+
+```python
+import pandas as pd
+
+*a = pd.Series(range(10))         # [0 1 2 3 4 5 6 7 8 9]
+*b = pd.Series(range(0, 100, 10)) # [ 0 10 20 30 40 50 60 70 80 90]
+```
+
+---
+class: middle
+
+# "Element Wise" operations in action
+
+```python
+import pandas as pd
+
+a = pd.Series(range(10))         # [0 1 2 3 4 5 6 7 8 9]
+b = pd.Series(range(0, 100, 10)) # [ 0 10 20 30 40 50 60 70 80 90]
+
+*print(a + b)
+```
+
+```
+0     0
+1    11
+2    22
+3    33
+4    44
+5    55
+6    66
+7    77
+8    88
+9    99
+dtype: int64
+```
+---
+class: middle
+
+# "Element Wise" operations in action
+
+```python
+import pandas as pd
+
+a = pd.Series(range(10))         # [0 1 2 3 4 5 6 7 8 9]
+b = pd.Series(range(0, 100, 10)) # [ 0 10 20 30 40 50 60 70 80 90]
+
+*print(a * b)
+```
+```
+0      0
+1     10
+2     40
+3     90
+4    160
+5    250
+6    360
+7    490
+8    640
+9    810
+dtype: int64
+```
+
+---
+class: middle
+
+# "Element Wise" operations in action
+
+```python
+import pandas as pd
+
+a = pd.Series(range(10))         # [0 1 2 3 4 5 6 7 8 9]
+b = pd.Series(range(0, 100, 10)) # [ 0 10 20 30 40 50 60 70 80 90]
+
+*print(a / b)   # Notice Type conversion and error handling
+```
+```
+0    NaN
+1    0.1
+2    0.1
+3    0.1
+4    0.1
+5    0.1
+6    0.1
+7    0.1
+8    0.1
+9    0.1
+dtype: float64
+```
 ---
 class: middle
 
 # Tables in Pandas are called DataFrames
 
 ![](https://pandas.pydata.org/docs/_images/01_table_dataframe1.svg)
+
+You can think of each column of a DataTable as a Series. Every element in a column must be of the same DataType and you can use all of the Series functionality on it.
+
+Every row is an element from every column. They are have the same index.
+
+---
+class: middle
+
+# A DataFrame might look something like this...
+
+```python
+                       Name  Age     Sex
+0   Braund, Mr. Owen Harris   22    male
+1  Allen, Mr. William Henry   35    male
+2  Bonnell, Miss. Elizabeth   58  female
+```
+
+With an associated Excel table that might look like this...
+
+![](https://pandas.pydata.org/docs/_images/01_table_spreadsheet.png)
+
+---
+class: middle
+
+# To create a DataFrame we essentially just give the constructor a bunch of Series'.
+
+There are a whole bunch of ways to create a DataFrame but the most popular is this dictionary syntax...
+
+```python
+df = pd.DataFrame({
+    "Name": ["Braund, Mr. Owen Harris",
+             "Allen, Mr. William Henry",
+             "Bonnell, Miss. Elizabeth"],
+   "Age": [22, 35, 58],
+   "Sex": ["male", "male", "female"]
+})
+```
