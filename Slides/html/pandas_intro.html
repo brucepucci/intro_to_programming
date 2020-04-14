@@ -858,6 +858,21 @@ B  Allen, Mr. William Henry   35    male  110000.0
 C  Bonnell, Miss. Elizabeth   58  female  440000.0
 D               Horton, Tim   37    male   80000.0
 ```
+
+---
+class: middle
+ 
+# CSV Files
+ 
+A CSV (comma separated values) file, is a plain text document storing tabular data. Rows are divided by new line characters and values are separated by columns.
+
+Pandas provides great support for CSV files with the read_csv function. It will read A CSV from a given path and return a DataFrame with it's contents.
+
+```python
+import pandas as pd
+
+*df = pd.read_csv('Documents/data.csv')
+```
 		</textarea>
 		<script src="https://gnab.github.io/remark/downloads/remark-latest.min.js"></script>
 		<script>
