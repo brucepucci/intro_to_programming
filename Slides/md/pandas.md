@@ -423,12 +423,13 @@ With an associated Excel table that might look like this...
 
 ![](https://pandas.pydata.org/docs/_images/01_table_spreadsheet.png)
 
+
 ---
 class: middle
 
-# To create a DataFrame we essentially just give the constructor a bunch of Series'.
+# To create a DataFrame we essentially just give the constructor a bunch of Series.
 
-There are a whole bunch of ways to create a DataFrame but the most popular is this dictionary syntax...
+There are a lot of ways to create a DataFrame but the most popular is this dictionary syntax...
 
 ```python
 df = pd.DataFrame({
@@ -438,4 +439,403 @@ df = pd.DataFrame({
    "Age": [22, 35, 58],
    "Sex": ["male", "male", "female"]
 })
+
+print(df)
 ```
+
+```python
+                       Name  Age     Sex
+0   Braund, Mr. Owen Harris   22    male
+1  Allen, Mr. William Henry   35    male
+2  Bonnell, Miss. Elizabeth   58  female
+```
+
+---
+class: middle
+
+# The Pandas axis labeling system
+
+An axis is a dimension in a table. The rows are labeled by the `index` and the columns are labeled by the `column names`.
+
+Pandas axes labeling system serves a few purposes...
+
+1) Identifies data
+    * Every row and column get a canonical name
+
+2) Enables data alignment
+    * Every column will have the same number of rows in the same row ordering
+    * Every row will have the same number of columns in the same column ordering
+
+3) Allows the getting and setting of data
+    * We can use the respective axis' name to get or set it's values
+
+---
+# Selecting DataFrame Columns
+
+Pass column names as a list to the index operator select certain columns
+
+```
+                       Name  Age     Sex
+0   Braund, Mr. Owen Harris   22    male
+1  Allen, Mr. William Henry   35    male
+2  Bonnell, Miss. Elizabeth   58  female
+```
+
+```
+*df[['Name', 'Age']]   # Get subset of DataFrame by column names
+```
+
+```
+                       Name  Age
+0   Braund, Mr. Owen Harris   22
+1  Allen, Mr. William Henry   35
+2  Bonnell, Miss. Elizabeth   58
+```
+
+---
+# Selecting DataFrame Columns
+
+A Pandas column is a Pandas Series. If you want the series data type back just past the column name as a sting instead of a list.
+
+```
+                       Name  Age     Sex
+0   Braund, Mr. Owen Harris   22    male
+1  Allen, Mr. William Henry   35    male
+2  Bonnell, Miss. Elizabeth   58  female
+```
+
+```
+*df['Age']   # Get Age as a Series
+```
+
+```
+0    22
+1    35
+2    58
+Name: Age, dtype: int64
+```
+
+
+---
+# Selecting DataFrame Columns
+
+A Pandas column is a Pandas Series. If you want the series data type back just past the column name as a sting instead of a list.
+
+```
+                       Name  Age     Sex
+0   Braund, Mr. Owen Harris   22    male
+1  Allen, Mr. William Henry   35    male
+2  Bonnell, Miss. Elizabeth   58  female
+```
+
+```
+*df.Age   # Can also use the dot operator
+*        # Will not work with columns with a space
+```
+
+```
+0    22
+1    35
+2    58
+Name: Age, dtype: int64
+```
+
+---
+# Selecting DataFrame Rows
+
+Selecting a row or slice of rows is a little more tricky. There are 2 features to the DataFrame class you can use... `.loc` and `.iloc`
+
+```
+                       Name  Age     Sex
+A   Braund, Mr. Owen Harris   22    male
+B  Allen, Mr. William Henry   35    male
+C  Bonnell, Miss. Elizabeth   58  female
+```
+
+**Notice that I changed the row index to A, B, C.**
+
+---
+# Selecting DataFrame Rows
+
+Selecting a row or slice of rows is a little more tricky. There are 2 features to the DataFrame class you can use... `.loc` and `.iloc`
+
+```
+                       Name  Age     Sex
+A   Braund, Mr. Owen Harris   22    male
+B  Allen, Mr. William Henry   35    male
+C  Bonnell, Miss. Elizabeth   58  female
+```
+
+```python
+*df.iloc[0]   # iloc looks up by row number
+```
+
+```
+Name    Braund, Mr. Owen Harris
+Age                          22
+Sex                        male
+Name: A, dtype: object
+```
+
+---
+# Selecting DataFrame Rows
+
+Selecting a row or slice of rows is a little more tricky. There are 2 features to the DataFrame class you can use... `.loc` and `.iloc`
+
+```
+                       Name  Age     Sex
+A   Braund, Mr. Owen Harris   22    male
+B  Allen, Mr. William Henry   35    male
+C  Bonnell, Miss. Elizabeth   58  female
+```
+
+```python
+*df.loc['A']   # loc looks up by row index
+```
+
+```
+Name    Braund, Mr. Owen Harris
+Age                          22
+Sex                        male
+Name: A, dtype: object
+```
+
+---
+# Selecting DataFrame Rows
+
+Selecting a row or slice of rows is a little more tricky. There are 2 features to the DataFrame class you can use... `.loc` and `.iloc`
+
+```
+                       Name  Age     Sex
+A   Braund, Mr. Owen Harris   22    male
+B  Allen, Mr. William Henry   35    male
+C  Bonnell, Miss. Elizabeth   58  female
+```
+
+```python
+*df.iloc[0:2]   # iloc can slice too
+```
+
+```
+                       Name  Age   Sex
+A   Braund, Mr. Owen Harris   22  male
+B  Allen, Mr. William Henry   35  male
+```
+
+---
+# Selecting DataFrame Rows
+
+Selecting a row or slice of rows is a little more tricky. There are 2 features to the DataFrame class you can use... `.loc` and `.iloc`
+
+```
+                       Name  Age     Sex
+A   Braund, Mr. Owen Harris   22    male
+B  Allen, Mr. William Henry   35    male
+C  Bonnell, Miss. Elizabeth   58  female
+```
+
+```python
+*df.loc['A':'B']   # loc can also slice but it's a little weird
+```
+
+```
+                       Name  Age     Sex
+A   Braund, Mr. Owen Harris   22    male
+B  Allen, Mr. William Henry   35    male
+```
+
+---
+# Selecting DataFrame Rows & Columns
+
+You can also use `.iloc` and `.loc` to select on both row and column. You just separate them by a comma.
+
+```
+                       Name  Age     Sex
+A   Braund, Mr. Owen Harris   22    male
+B  Allen, Mr. William Henry   35    male
+C  Bonnell, Miss. Elizabeth   58  female
+```
+
+```python
+*df.iloc[:2, :2]  # First 2 rows and columns
+```
+
+```
+                       Name  Age
+A   Braund, Mr. Owen Harris   22
+B  Allen, Mr. William Henry   35
+```
+
+---
+# Selecting DataFrame Rows & Columns
+
+You can also use `.iloc` and `.loc` to select on both row and column. You just separate them by a comma.
+
+```
+                       Name  Age     Sex
+A   Braund, Mr. Owen Harris   22    male
+B  Allen, Mr. William Henry   35    male
+C  Bonnell, Miss. Elizabeth   58  female
+```
+
+```python
+*df.loc[:, ['Age', 'Sex']]   # All rows and 2 columns
+```
+
+```
+   Age     Sex
+A   22    male
+B   35    male
+C   58  female
+```
+
+---
+
+# Selecting DataFrame Rows & Columns On Boolean Values
+
+If you pass a list of Booleans to the index operator we filter rows based on the row numbers.
+
+```
+                       Name  Age     Sex
+A   Braund, Mr. Owen Harris   22    male
+B  Allen, Mr. William Henry   35    male
+C  Bonnell, Miss. Elizabeth   58  female
+```
+
+```python
+*df[True, False, True]   # 1st and 3rd rows
+```
+
+```
+                       Name  Age     Sex
+A   Braund, Mr. Owen Harris   22    male
+C  Bonnell, Miss. Elizabeth   58  female
+```
+
+Turns out this is really, really useful...
+
+---
+
+# Selecting DataFrame Rows based on a column condition
+
+We can return a list of booleans from a Pandas operation and use that to index
+
+```
+                       Name  Age     Sex
+A   Braund, Mr. Owen Harris   22    male
+B  Allen, Mr. William Henry   35    male
+C  Bonnell, Miss. Elizabeth   58  female
+```
+
+```python
+*df[df.Sex == 'male']   # All the males in our DataFrame
+```
+
+```
+                       Name  Age   Sex
+A   Braund, Mr. Owen Harris   22  male
+B  Allen, Mr. William Henry   35  male
+```
+
+---
+
+# Selecting DataFrame Rows based on a column condition
+
+We can return a list of booleans from a Pandas operation and use that to index
+
+```
+                       Name  Age     Sex
+A   Braund, Mr. Owen Harris   22    male
+B  Allen, Mr. William Henry   35    male
+C  Bonnell, Miss. Elizabeth   58  female
+```
+
+```python
+*df[df.Age >= 30]   # All the people over 30 years old
+```
+
+```
+                       Name  Age     Sex
+B  Allen, Mr. William Henry   35    male
+C  Bonnell, Miss. Elizabeth   58  female
+```
+
+---
+
+# Adding a Column
+
+Adding a column is dead simple. Name your column using the index operator and give it an iterable that has the same number of record as there are rows.
+
+```
+                       Name  Age     Sex
+A   Braund, Mr. Owen Harris   22    male
+B  Allen, Mr. William Henry   35    male
+C  Bonnell, Miss. Elizabeth   58  female
+```
+
+```python
+*df['Salary'] = [50000, 100000, 400000]  # Adding a column named Salary
+```
+
+```
+                       Name  Age     Sex  Salary
+A   Braund, Mr. Owen Harris   22    male   50000
+B  Allen, Mr. William Henry   35    male  100000
+C  Bonnell, Miss. Elizabeth   58  female  400000
+```
+
+---
+
+# Changing a Column
+
+Slide to the column or row you want and give it an iterable.
+
+```
+                       Name  Age     Sex  Salary
+A   Braund, Mr. Owen Harris   22    male   50000
+B  Allen, Mr. William Henry   35    male  100000
+C  Bonnell, Miss. Elizabeth   58  female  400000
+```
+
+```python
+*df['Salary'] = df['Salary'] * 1.1  # Everyone gets a 10% raise
+```
+
+```
+                       Name  Age     Sex    Salary
+A   Braund, Mr. Owen Harris   22    male   55000.0
+B  Allen, Mr. William Henry   35    male  110000.0
+C  Bonnell, Miss. Elizabeth   58  female  440000.0
+```
+
+---
+
+# Adding a row
+
+You can add a row with a dictionary who's keys are the column names.
+
+```
+                       Name  Age     Sex    Salary
+A   Braund, Mr. Owen Harris   22    male   55000.0
+B  Allen, Mr. William Henry   35    male  110000.0
+C  Bonnell, Miss. Elizabeth   58  female  440000.0
+```
+
+```python
+df.loc['D'] = {     # using .loc
+    'Name': 'Horton, Tim',
+    'Age': 37,
+    'Sex': 'male',
+    'Salary': 80000
+}
+```
+
+```
+                       Name  Age     Sex    Salary
+A   Braund, Mr. Owen Harris   22    male   55000.0
+B  Allen, Mr. William Henry   35    male  110000.0
+C  Bonnell, Miss. Elizabeth   58  female  440000.0
+D               Horton, Tim   37    male   80000.0
+```
+
+
